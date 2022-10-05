@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 꾸다 - 인덱스 </title>
-    
     <style>
         @font-face {
             font-family: 'PyeongChangPeace';
@@ -21,9 +20,8 @@
         * {
             margin: 0;
             padding: 0;
-            
         }
-        body {  
+        body {
             margin: 0 auto;
             font-family: 'PyeongChangPeace';
             font-weight: 700;
@@ -38,6 +36,12 @@
             height: 100vh;
             display: flex;
             justify-content: space-between;
+        }
+        h2 {
+            padding-top: 30px;
+            color: #5C6E6C;
+            font-size: 46px;
+            transition: all 0.3s;
         }
         .figma {
             width: 33.3%;
@@ -55,10 +59,13 @@
         }
         .php {
             width: 33.3%;
-            background-color: #c3cfdd;
+            background-color: #C3CFDD;
             padding-top: 30px;
             padding-bottom: 40px;
             text-align: center;
+        }
+        .EX__box {
+            display: none;
         }
         .figma > a{
            color: rgb(150 165 163);
@@ -70,11 +77,10 @@
         .php a{
             color: rgb(141 162 175);
         }
-
         .figma__wrap h3 {
-            font-size: 30px;    
+            font-size: 30px;
             padding-top: 30px;
-            color: #5c6e6c;
+            color: #5C6E6C;
         }
         .figma__wrap li {
             margin: -15px;
@@ -83,36 +89,80 @@
             color: rgb(150 165 163);
             font-size: 26px;
         }
+        
     </style>
 </head>
 <body>
     <div class="wrap">
         <div class="figma"><a href="https://www.figma.com/file/JfmnC5oLEfHDRkkT8obVcE/Untitled?node-id=0%3A1" target="_blank">Figma</a>
             <div class="figma__wrap">
-                <h3>로그인 팝업 UI</h3>
-                <ul>
-                    <li><a href="Figma_side/F_login.html" target="_blank">로그인 팝업창</a></li>
-                </ul>
-                <h3>아이디 찾기 UI</h3>
-                <ul>
-                    <li><a href="Figma_side/F_ID.html" target="_blank">아이디 찾기</a></li>
-                    <li><a href="Figma_side/F_ID_clear.html" target="_blank">찾기 완료</a></li>
-                </ul>
-                <h3>비밀번호 찾기 UI</h3>
-                <ul>
-                    <li><a href="Figma_side/F_password.html" target="_blank">비밀번호 찾기</a></li>
-                    <li><a href="Figma_side/F_password_clear.html" target="_blank">찾기 완료</a></li>
-                </ul>
-                <h3>회원가입 UI</h3>
-                <ul>
-                    <li><a href="Figma_side/F_OK.html" target="_blank">회원가입 동의</a></li>
-                    <li><a href="Figma_side/F_ing.html" target="_blank">회원가입 진행</a></li>
-                    <li><a href="Figma_side/F_clear.html" target="_blank">회원가입 완료</a></li>
-                </ul>
+                <h2 class="Up">로그인 디자인
+                <div class="EX__box">
+                    <ul>
+                        <h3>로그인 팝업 UI</h3>
+                        <li><a href="Figma_side/F_login.html" target="_blank">로그인 팝업창</a></li>
+                    </ul>
+                    <ul>
+                        <h3>아이디 찾기 UI</h3>
+                        <li><a href="Figma_side/F_ID.html" target="_blank">아이디 찾기</a></li>
+                        <li><a href="Figma_side/F_ID_clear.html" target="_blank">찾기 완료</a></li>
+                    </ul>
+                    <ul>
+                        <h3>비밀번호 찾기 UI</h3>
+                        <li><a href="Figma_side/F_password.html" target="_blank">비밀번호 찾기</a></li>
+                        <li><a href="Figma_side/F_password_clear.html" target="_blank">찾기 완료</a></li>
+                    </ul>
+                    <ul>
+                        <h3>회원가입 UI</h3>
+                        <li><a href="Figma_side/F_OK.html" target="_blank">회원가입 동의</a></li>
+                        <li><a href="Figma_side/F_ing.html" target="_blank">회원가입 진행</a></li>
+                        <li><a href="Figma_side/F_clear.html" target="_blank">회원가입 완료</a></li>
+                    </ul>
+                </div>
+                </h2>
+                <h2 class="Up">게시판 디자인
+                <div class="EX__box">
+                    <ul>
+                        <h3>공지사항 디자인</h3>
+                        <li><a href="Figma_list/F_notion.html" target="_blank">공지사항 메인</a></li>
+                        <li><a href="Figma_list/F_notionOK.html" target="_blank">공지사항 내용 확인</a></li>
+                        <li><a href="Figma_list/F_notionNOT.html" target="_blank">공지사항 수정</a></li>
+                        <li><a href="Figma_list/F_notionNOTbye.html" target="_blank">공지사항 수정 확인</a></li>
+                        <!-- <li><a href="Figma_list/F_notionDt.html" target="_blank">공지사항 삭제</a></li> -->
+                    </ul>
+                    <ul>
+                        <h3>게시판 디자인</h3>
+                        <li><a href="Figma_list/F_board.html" target="_blank">게시판 메인</a></li>
+                        <li><a href="Figma_list/F_boardOK.html" target="_blank">게시판 내용 확인</a></li>
+                        <li><a href="Figma_list/F_boardWhite.html" target="_blank">게시판 작성</a></li>
+                        <li><a href="Figma_list/F_boardNOT.html" target="_blank">게시판 수정</a></li>
+                        <li><a href="Figma_list/F_boardNOTbye.html" target="_blank">게시판 수정 확인</a></li>
+                        <li><a href="Figma_list/F_boardSearch.html" target="_blank">게시판 검색</a></li>
+                        <!-- <li><a href="Figma_list/F_boardDt.html" target="_blank">게시판 삭제</a></li> -->
+                    </ul>
+                    <!-- <ul>
+                        <h3>FAQ 페이지</h3>
+                        <li><a href="Figma_list/F_FQA.html" target="_blank">FAQ 페이지</a></li>
+                        <li><a href="Figma_list/F_FQAopen.html" target="_blank">FAQ 내용 확인</a></li>
+                    </ul> -->
+                </div>
+                </h2>
             </div>
         </div>
         <div class="html"><a href="#">html</a></div>
         <div class="php"><a href="#">php</a></div>
     </div>
 </body>
+<script>
+    const btn = document.querySelectorAll(".figma__wrap .Up")
+    btn.forEach((e,i)=>{
+        e.addEventListener("click",()=>{
+            if(document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.disply==='block'){
+                document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.display="none";
+            }else{
+                document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.display="block";
+            }
+        })
+    })
+</script>
 </html>
