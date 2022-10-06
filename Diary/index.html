@@ -5,27 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 꾸다 - 인덱스 </title>
+    <link href="https://webfontworld.github.io/nixgon/NixgonFonts.css" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'PyeongChangPeace';
-            font-weight: 700;
-            font-style: normal;
-            src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.eot');
-            src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.eot?#iefix') format('embedded-opentype'),
-                url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.woff2') format('woff2'),
-                url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.woff') format('woff'),
-                url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Bold.ttf') format("truetype");
-            font-display: swap;
-        }
         * {
             margin: 0;
             padding: 0;
         }
         body {
             margin: 0 auto;
-            font-family: 'PyeongChangPeace';
+            font-family: 'NixgonFonts';
             font-weight: 700;
-            font-size: 50px;
+            font-size: 40px;
         }
         a {
             text-decoration: none;
@@ -38,28 +28,28 @@
             justify-content: space-between;
         }
         h2 {
-            padding-top: 30px;
-            color: #5C6E6C;
-            font-size: 46px;
+            padding-top: 24px;
+            color: #748f8c;
+            font-size: 32px;
             transition: all 0.3s;
         }
         .figma {
-            width: 33.3%;
-            background-color: #E0E3DA;
+            width: 33.333%;
+            background-color: #181818;
             padding-top: 30px;
             padding-bottom: 40px;
             text-align: center;
         }
         .html {
-            width: 33.3%;
-            background-color: #FFFFF3;
+            width: 33.333%;
+            background-color: #8758FF;
             padding-top: 30px;
             padding-bottom: 40px;
             text-align: center;
         }
         .php {
-            width: 33.3%;
-            background-color: #C3CFDD;
+            width: 33.333%;
+            background-color: #F2F2F2;
             padding-top: 30px;
             padding-bottom: 40px;
             text-align: center;
@@ -67,27 +57,31 @@
         .EX__box {
             display: none;
         }
+        .show {
+            display: block;
+        }
         .figma > a{
            color: rgb(150 165 163);
-           border-bottom: 5px solid rgb(150 165 163);
+           border-bottom: 2px solid rgb(150 165 163);
         }
         .html a{
-            color: rgb(196 207 205);
+            color: rgb(157 198 233);
         }
         .php a{
             color: rgb(141 162 175);
         }
         .figma__wrap h3 {
-            font-size: 30px;
-            padding-top: 30px;
+            font-size: 22px;
+            padding-top: 15px;
             color: #5C6E6C;
         }
         .figma__wrap li {
-            margin: -15px;
+            margin: -5px;
         }
         .figma__wrap li > a {
-            color: rgb(150 165 163);
-            font-size: 26px;
+            color: rgb(189 215 211);
+            font-size: 18px;
+            font-weight: 500;
         }
         
     </style>
@@ -128,7 +122,7 @@
                         <li><a href="Figma_list/F_notionOK.html" target="_blank">공지사항 내용 확인</a></li>
                         <li><a href="Figma_list/F_notionNOT.html" target="_blank">공지사항 수정</a></li>
                         <li><a href="Figma_list/F_notionNOTbye.html" target="_blank">공지사항 수정 확인</a></li>
-                        <!-- <li><a href="Figma_list/F_notionDt.html" target="_blank">공지사항 삭제</a></li> -->
+                        <li><a href="Figma_list/F_notionDt.html" target="_blank">공지사항 삭제</a></li>
                     </ul>
                     <ul>
                         <h3>게시판 디자인</h3>
@@ -138,13 +132,12 @@
                         <li><a href="Figma_list/F_boardNOT.html" target="_blank">게시판 수정</a></li>
                         <li><a href="Figma_list/F_boardNOTbye.html" target="_blank">게시판 수정 확인</a></li>
                         <li><a href="Figma_list/F_boardSearch.html" target="_blank">게시판 검색</a></li>
-                        <!-- <li><a href="Figma_list/F_boardDt.html" target="_blank">게시판 삭제</a></li> -->
+                        <li><a href="Figma_list/F_boardDt.html" target="_blank">게시판 삭제</a></li>
                     </ul>
-                    <!-- <ul>
+                    <ul>
                         <h3>FAQ 페이지</h3>
                         <li><a href="Figma_list/F_FQA.html" target="_blank">FAQ 페이지</a></li>
-                        <li><a href="Figma_list/F_FQAopen.html" target="_blank">FAQ 내용 확인</a></li>
-                    </ul> -->
+                    </ul>
                 </div>
                 </h2>
             </div>
@@ -155,13 +148,15 @@
 </body>
 <script>
     const btn = document.querySelectorAll(".figma__wrap .Up")
+    
     btn.forEach((e,i)=>{
         e.addEventListener("click",()=>{
-            if(document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.disply==='block'){
-                document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.display="none";
-            }else{
-                document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").style.display="block";
-            }
+            document.querySelector(".Up .EX__box.show").classList.remove("show");
+        })
+    })
+    btn.forEach((e,i)=>{
+        e.addEventListener("click",()=>{
+            document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").classList.add("show");
         })
     })
 </script>

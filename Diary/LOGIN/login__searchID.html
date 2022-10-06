@@ -1,0 +1,35 @@
+<div class="login__popup">
+    <div class="login__inner">
+        <div class="login__header">
+            <div class="popup-logo">
+                <img src="#" alt="">
+                <h3>SEARCH</h3>
+            </div>
+            <div class="search-txt">
+                <p>아이디를 찾기 위한 정보를 입력해주세요!</p>
+                <p class="fail">정보를 다시 확인해주세요!</p>
+            </div>
+            <div class="cross">
+                x
+            </div>
+        </div>
+        <div class="search__cont">
+            <form name="search" action="searchSave.php" method="post">
+                <fieldset>
+                    <legend>아이디를 위한 생년월일 검색 영역</legend>
+                    <select name="searchBirth" id="searchBirth">
+                        <option value="birthYear">년도</option>
+                        <option value="month">월</option>
+                        <option value="day">일</option>
+                    </select>
+                    <div>
+                        <label for="youEmal">이메일</label>
+                        <input type="email" name="youEmail" id="youEmail" placeholder="이메일" class="input__style" required>
+                    </div>
+                    <button type="submit" class="input__Btn">아이디 찾기</button>
+                </fieldset>
+            </form>
+        </div>
+        <button type="button" class="btn-close"><span>닫기</span></button>
+    </div>
+</div>
