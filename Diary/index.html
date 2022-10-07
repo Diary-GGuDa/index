@@ -7,19 +7,22 @@
     <title> 꾸다 - 인덱스 </title>
     <link href="https://webfontworld.github.io/nixgon/NixgonFonts.css" rel="stylesheet">
     <style>
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+        @import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
         * {
             margin: 0;
             padding: 0;
         }
         body {
             margin: 0 auto;
-            font-family: 'NixgonFonts';
+            font-family: 'NanumSquare';
             font-weight: 700;
             font-size: 40px;
         }
         a {
             text-decoration: none;
             text-transform: uppercase;
+            color: #000;
         }
         .wrap {
             width: 100%;
@@ -27,137 +30,306 @@
             display: flex;
             justify-content: space-between;
         }
-        h2 {
-            padding-top: 24px;
-            color: #748f8c;
-            font-size: 32px;
+        ul,li {
+            list-style: none;
+        }
+        .hover {
+            color: #000;
             transition: all 0.3s;
+        }
+        .hover:hover {
+            color: #4B12A7;
         }
         .figma {
             width: 33.333%;
-            background-color: #181818;
-            padding-top: 30px;
-            padding-bottom: 40px;
+            height: 100vh;
+            margin: 0 auto;
             text-align: center;
+            margin-top: 30px;
+            font-family: 'SCoreDream';
+            font-weight: bold;
+            color: #4B12A7;
+            border-right:1px solid #2b066721;
+            position: relative;
         }
         .html {
             width: 33.333%;
-            background-color: #8758FF;
-            padding-top: 30px;
-            padding-bottom: 40px;
+            height: 100vh;
+            margin: 0 auto;
             text-align: center;
+            margin-top: 30px;
+            font-family: 'SCoreDream';
+            font-weight: bold;
+            color: #4B12A7;
+            border-right: 1px solid #2b066721;
         }
         .php {
             width: 33.333%;
-            background-color: #F2F2F2;
-            padding-top: 30px;
-            padding-bottom: 40px;
+            height: 100vh;
+            margin: 0 auto;
             text-align: center;
+            margin-top: 30px;
+            font-family: 'SCoreDream';
+            font-weight: bold;
+            color: #4B12A7;
         }
-        .EX__box {
-            display: none;
+        .codi img {
+            position: absolute;
+            right: 40px;
+            top: 40px;
         }
-        .show {
-            display: block;
+        .star img {
+            position: absolute;
+            left: 40px;
+            top: 5px;
         }
-        .figma > a{
-           color: rgb(150 165 163);
-           border-bottom: 2px solid rgb(150 165 163);
+        .star2 img {
+            position: absolute;
+            left: 130px;
+            top: 75px;
         }
-        .html a{
-            color: rgb(157 198 233);
+        .star3 img {
+            position: absolute;
+            right: 130px;
+            top: 75px;
         }
-        .php a{
-            color: rgb(141 162 175);
+        .star4 img {
+            position: absolute;
+            right: 30px;
+            top: 5px;
         }
-        .figma__wrap h3 {
-            font-size: 22px;
-            padding-top: 15px;
-            color: #5C6E6C;
+
+        .line img {
+            position: absolute;
+            right: 20px;
+            top: 300px;
+            z-index: -1;
         }
-        .figma__wrap li {
-            margin: -5px;
+        .figma__wrap {
+            margin: 50px 0;
         }
-        .figma__wrap li > a {
-            color: rgb(189 215 211);
-            font-size: 18px;
-            font-weight: 500;
+        .F_login {
+            padding: 40px 40px 1px 40px;
         }
-        
+        .F_login ul > h2 {
+            font-size: 30px;
+            font-family: 'SCoreDream';
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .F_login ul {
+            text-align: left;
+            font-size: 20px;
+        }
+        .F_login ul li {
+            margin-bottom: 5px;
+            border-bottom: Dashed 1px #ededed;
+            margin-left: 20px;
+            padding: 15px 0;
+        }
+        .F_login ul li a {
+            font-weight: normal;
+        }
+        .F_login ul li a:hover {
+            color: #210156;
+            background: #f8f4ff;
+            border-radius: 50px;
+            padding: 10px;
+        }
+        /* 게시판 */
+        .F_board {
+            padding: 40px 40px 1px 40px;
+            border-right: 1px solid #2b066721;
+            position: relative;
+        }
+        .F_board .star5 img {
+            position: absolute;
+            right: 30px;
+            top: 5px;
+        }
+        .F_board .star6 img {
+            position: absolute;
+            right: 170px;
+            top: 350px;
+        }
+        .F_board .star7 img {
+            position: absolute;
+            right: 230px;
+            bottom: 50px;
+        }
+        .F_board ul > h2 {
+            font-size: 30px;
+            font-family: 'SCoreDream';
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .F_board ul {
+            text-align: left;
+            font-size: 20px;
+        }
+        .F_board ul li {
+            margin-bottom: 5px;
+            border-bottom: Dashed 1px #ededed;
+            margin-left: 20px;
+            padding: 15px 0;
+        }
+        .F_board ul li a {
+            font-weight: normal;
+        }
+        .F_board ul li a:hover {
+            color: #210156;
+            background: #f8f4ff;
+            border-radius: 50px;
+            padding: 10px;
+            
+        }
+        .board_right img {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            top: 40px;
+            right: 40px;
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="figma"><a href="https://www.figma.com/file/JfmnC5oLEfHDRkkT8obVcE/Untitled?node-id=0%3A1" target="_blank">Figma</a>
-            <div class="figma__wrap">
-                <h2 class="Up">로그인 디자인
-                <div class="EX__box">
-                    <ul>
-                        <h3>로그인 팝업 UI</h3>
-                        <li><a href="Figma_side/F_login.html" target="_blank">로그인 팝업창</a></li>
-                    </ul>
-                    <ul>
-                        <h3>아이디 찾기 UI</h3>
-                        <li><a href="Figma_side/F_ID.html" target="_blank">아이디 찾기</a></li>
-                        <li><a href="Figma_side/F_ID_clear.html" target="_blank">찾기 완료</a></li>
-                    </ul>
-                    <ul>
-                        <h3>비밀번호 찾기 UI</h3>
-                        <li><a href="Figma_side/F_password.html" target="_blank">비밀번호 찾기</a></li>
-                        <li><a href="Figma_side/F_password_clear.html" target="_blank">찾기 완료</a></li>
-                    </ul>
-                    <ul>
-                        <h3>회원가입 UI</h3>
-                        <li><a href="Figma_side/F_OK.html" target="_blank">회원가입 동의</a></li>
-                        <li><a href="Figma_side/F_ing.html" target="_blank">회원가입 진행</a></li>
-                        <li><a href="Figma_side/F_clear.html" target="_blank">회원가입 완료</a></li>
-                    </ul>
-                </div>
-                </h2>
-                <h2 class="Up">게시판 디자인
-                <div class="EX__box">
-                    <ul>
-                        <h3>공지사항 디자인</h3>
-                        <li><a href="Figma_list/F_notion.html" target="_blank">공지사항 메인</a></li>
-                        <li><a href="Figma_list/F_notionOK.html" target="_blank">공지사항 내용 확인</a></li>
-                        <li><a href="Figma_list/F_notionNOT.html" target="_blank">공지사항 수정</a></li>
-                        <li><a href="Figma_list/F_notionNOTbye.html" target="_blank">공지사항 수정 확인</a></li>
-                        <li><a href="Figma_list/F_notionDt.html" target="_blank">공지사항 삭제</a></li>
-                    </ul>
-                    <ul>
-                        <h3>게시판 디자인</h3>
-                        <li><a href="Figma_list/F_board.html" target="_blank">게시판 메인</a></li>
-                        <li><a href="Figma_list/F_boardOK.html" target="_blank">게시판 내용 확인</a></li>
-                        <li><a href="Figma_list/F_boardWhite.html" target="_blank">게시판 작성</a></li>
-                        <li><a href="Figma_list/F_boardNOT.html" target="_blank">게시판 수정</a></li>
-                        <li><a href="Figma_list/F_boardNOTbye.html" target="_blank">게시판 수정 확인</a></li>
-                        <li><a href="Figma_list/F_boardSearch.html" target="_blank">게시판 검색</a></li>
-                        <li><a href="Figma_list/F_boardDt.html" target="_blank">게시판 삭제</a></li>
-                    </ul>
-                    <ul>
-                        <h3>FAQ 페이지</h3>
-                        <li><a href="Figma_list/F_FQA.html" target="_blank">FAQ 페이지</a></li>
-                    </ul>
-                </div>
-                </h2>
+        <div class="figma">
+            <figure class="codi">
+                <img src="img/figma_right.png"alt="코디">
+            </figure>
+            <figure class="star">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star2">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star3">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star4">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="line">
+                <img src="img/Vector 7.png"alt="스크롤">
+            </figure>
+            <a href="https://www.figma.com/file/JfmnC5oLEfHDRkkT8obVcE/Untitled?node-id=0%3A1" target="_blank"><h2 class="hover">Figma</h2></a>
+            <div class="F_login">
+                <ul>
+                    <h2>피그마 _ 로그인 / 회원가입</h2>
+                    <li><a href="Figma/Figma_login/F_login.html">01. 로그인 팝업창</a></li>
+                    <li><a href="Figma/Figma_login/F_ID.html">02. 아이디 찾기</a></li>
+                    <li><a href="Figma/Figma_login/F_password.html">03. 비밀번호 찾기</a></li>
+                    <li><a href="Figma/Figma_login/F_ID_clear.html">04. 아이디 찾기 완료</a></li>
+                    <li><a href="Figma/Figma_login/F_password_clear.html">05. 비밀번호 찾기 완료</a></li>
+                    <li><a href="Figma/Figma_login/F_OK.html">06. 이용약관 동의</a></li>
+                    <li><a href="Figma/Figma_login/F_ing.html">07. 회원가입 정보 입력</a></li>
+                    <li><a href="Figma/Figma_login/F_clear.html">08. 회원가입 완료</a></li>
+                    <li><a href="Figma/Figma_login/F_bye.html">09. 회원 탈퇴 확인</a></li>
+                    <li><a href="Figma/Figma_login/F_byebye.html">10. 회원 탈퇴 완료</a></li>
+                </ul>
+            </div>
+            <div class="F_board">
+                <figure class="board_right">
+                    <img src="img/board_right.png" alt="코디2">
+                </figure>
+                <figure class="star5">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                <figure class="star6">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                <figure class="star7">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                
+                <ul>
+                    <h2>게시판</h2>
+                    <li><a href="Figma/Figma_notion/F_notion.html">01. 공지사항 메인 </a></li>
+                    <li><a href="Figma/Figma_notion/F_notionDt.html">02. 공지사항 보기 </a></li>
+                    <li><a href="Figma/Figma_notion/F_boardWhite.html">03. 공지사항 글쓰기 </a></li>
+                    <li><a href="Figma/Figma_notion/F_boardNOT.html">04. 공지사항 수정</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardNOTbye.html">05. 공지사항 수정 완료</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardDt.html">06. 공지사항 삭제</a></li>
+                    <li><a href="Figma/Figma_notion/F_board.html">07. 게시판 메인</a></li>
+                    <li><a href="Figma/Figma_notion/F_notionOK.html">08. 게시판 보기</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardWhite.html">09. 게시판  글쓰기</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardNOT.html">11. 게시판 수정</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardNOTbye.html">12. 게시판 수정 완료</a></li>
+                    <li><a href="Figma/Figma_notion/F_boardDt.html">13. 게시판 삭제</a></li>
+                    <li><a href="Figma/Figma_notion/F_FQA.html">14. FAQ 보기</a></li>
+                </ul>
             </div>
         </div>
-        <div class="html"><a href="#">html</a></div>
-        <div class="php"><a href="#">php</a></div>
+        <div class="html">
+            <figure class="codi">
+                <img src="img/figma_right.png"alt="코디">
+            </figure>
+            <figure class="star">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star2">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star3">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="star4">
+                <img src="img/star.png"alt="별">
+            </figure>
+            <figure class="line">
+                <img src="img/Vector 7.png"alt="스크롤">
+            </figure>
+            <a href="https://www.figma.com/file/JfmnC5oLEfHDRkkT8obVcE/Untitled?node-id=0%3A1" target="_blank"><h2 class="hover">HTML</h2></a>
+            <div class="F_login">
+                <ul>
+                    <h2>HTML _ 로그인 / 회원가입</h2>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="F_board">
+                <figure class="board_right">
+                    <img src="img/board_right.png" alt="코디2">
+                </figure>
+                <figure class="star5">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                <figure class="star6">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                <figure class="star7">
+                    <img src="img/star.png"alt="별">
+                </figure>
+                
+                <ul>
+                    <h2>HTML - 게시판</h2>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 class="php"><a href="#">php</a></h2>
     </div>
 </body>
-<script>
-    const btn = document.querySelectorAll(".figma__wrap .Up")
-    
-    btn.forEach((e,i)=>{
-        e.addEventListener("click",()=>{
-            document.querySelector(".Up .EX__box.show").classList.remove("show");
-        })
-    })
-    btn.forEach((e,i)=>{
-        e.addEventListener("click",()=>{
-            document.querySelector(".Up:nth-child("+(i+1)+") .EX__box").classList.add("show");
-        })
-    })
-</script>
 </html>

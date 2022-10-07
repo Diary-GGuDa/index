@@ -1,0 +1,331 @@
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+@import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
+* {
+    margin: 0;
+    padding: 0;
+}
+/* 블라인드 효과 */
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+/* 이미지 대체(ir) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+body {
+    margin: 0 auto;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    font-size: 50px;
+    color: #2B0667;
+    background-color: #fff;
+    background-image: url(../../assets/img/site_body_bg.jpg);
+    background-repeat: repeat;
+}
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+em {
+    font-style:normal;
+}
+
+hr{
+    width: 32px;
+    border: 0.1px solid #ededed;
+    margin-bottom: 20px;
+}
+/* 로그인 */
+
+fieldset{
+    border: none;
+}
+
+
+/* 메인 */
+.scroll{
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+}
+.scroll p{
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+.header{
+    border-bottom: 1px solid #ededed;
+    box-shadow: 0px 20px 55px -30px #0000002e;
+    padding: 10px 0;
+    background: #ffffffb3;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(7px);
+}
+.header_inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1160px;
+}
+.header_inner p{
+    font-size: 16px;
+    padding: 0 15px;
+}
+.profile_cont{
+    position: relative;
+}
+.profile_cont img{
+    display: block;
+}
+.profile_cont img:nth-child(2){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 5px;
+    border: 1px solid #EDEDED;
+    background: #fff;
+}
+
+
+
+/* 게시판 */
+.board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.board_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.board_info h2{
+    font-family: 'SCoreDream';
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.board_info p{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.board_info .notice_logo{
+    margin-bottom: 20px;
+    margin-top: 120px;
+}
+
+.section_selector{
+    background: #f9f9fca3;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    width: 200px;
+    top: 100px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    border:1px solid #ffffff9e;
+}
+.section_selector a{
+    font-size: 16px;
+    display: block;
+    padding: 20px;
+    color: #4B12A7;
+}
+.select{
+    background: #4B12A7;
+    color: #fff !important;
+    border-radius: 50px;
+    padding: 20px !important;
+}
+
+.notice_logo{
+    width: 154px;
+}
+
+.board_list{
+    width: 100%;
+}
+.board_list_inner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 120px;
+    min-width: 437px;
+}
+
+.board_list_contents{
+    padding: 40px;
+    margin-bottom: 30px;
+    background: #f7f8fb;
+    border-radius: 25px;
+    border: 1px solid #f7f8fb;
+    width: 630px;
+}
+
+.board_list_contents:hover{
+    border: 1px solid #4b12a7;
+    box-shadow: 0px 50px 30px -35px #23084f2b;
+    background: #fff;
+    transition: 0.25s;
+}
+.board_list_contents:not(:hover){
+    transition: 0.25s;
+}
+.board_list_contents h2{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.board_list_contents h2 > a {
+    color: #2b0667;
+}
+.board_list_contents_info{
+    display: flex;
+    justify-content: center;
+}
+.board_list_contents_info p{
+    font-size: 16px;
+}
+
+
+/* btn 관련 */
+.input__Btn{
+    padding: 15px;
+    width: 100%;
+    height: 52px;
+    border-radius: 50px;
+    background: #4B12A7;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    display: block;
+}
+
+.write_btn{
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding: 20px 100px;
+    background: #ffffffc9;
+    border: 1px solid;
+    color: #4b12a7;
+    border-radius: 50px;
+    font-size: 16px;
+    backdrop-filter: blur(6px);
+}
+.write_btn:hover{
+    background: #4b12a7;
+    color: #fff;
+    transition: 0.25s;
+    border: 1px solid #4b12a7;
+}
+.write_btn:not(:hover){
+    transition: 0.25s;
+}
+.modify_btn {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding: 20px 100px;
+    background: #ffffffc9;
+    border: 1px solid;
+    color: #FF416E;
+    border-radius: 50px;
+    font-size: 16px;
+    backdrop-filter: blur(6px);
+}
+.modify_btn:hover{
+    background: #FF416E;
+    color: #fff;
+    transition: 0.25s;
+    border: 1px solid #FF416E;
+}
+.modify_btn:not(:hover){
+    transition: 0.25s;
+}
+
+/* board__view */
+.board__view {
+    margin: 0 auto;
+    text-align: center;
+    /* padding: 30px; */
+    color: #000;
+}
+.view-title {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: none;
+    padding: 15px;
+}
+.view-time {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.view-cont {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+}
+.view-cont > em {
+    font-weight: 700;
+}
+
+/* 게시판 수정 */
+.modify img{
+    margin-bottom: 20px;
+}
+.modify button > a {
+    color: #fff;
+}
+
+.modify{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.modify_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.modify_info h2{
+    font-family: 'SCoreDream';
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.modify_info p{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.modify_info .notice_logo{
+    margin-bottom: 20px;
+}

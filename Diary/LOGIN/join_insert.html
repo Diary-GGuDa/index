@@ -1,11 +1,9 @@
 <div class="login__popup">
     <div class="login__inner">
         <div class="login__header">
-            <div class="popup-logo">
-                <img src="#" alt="">
-                <h3>INSERT</h3>
-            </div>
-            <div class="agree-txt">
+            <img src="#" alt="">
+            <h3>INSERT</h3>
+            <div class="login-txt">
                 <p>개인정보를 이곳에 입력해주세요!</p>
                 <p class="fail">모든 정보를 입력해주세요!</p>
             </div>
@@ -13,7 +11,7 @@
                 x
             </div>
         </div>
-        <div class="agree__cont">
+        <div class="login__cont">
             <form name="agree" action="agreeSave.php" method="post">
                 <fieldset>
                     <legend>회원가입을 위한 정보 입력영역</legend>
@@ -26,17 +24,16 @@
                             <label for="youPass">PW</label>
                             <input type="password" name="youPass" id="youPass" placeholder="비밀번호" class="input__style" required>
                         </div>
-                        <select name="searchBirth" id="searchBirth">
-                            <option value="birthYear">년도</option>
-                            <option value="month">월</option>
-                            <option value="day">일</option>
-                        </select>
+                        <div>
+                            <label for="youBirth">년도 - 월 - 일</label>
+                            <input type="month" name="youBirth" id="youBirth" placeholder="년도" class="input__style" required>
+                        </div>
                         <select name="searchQA" id="searchQA">
                             <option value="QA">확인질답</option>
                         </select>
                         <div>
                             <label for="youQA">답변</label>
-                            <input type="text" name="youQA" id="youQA" placeholder="질문/답변" class="input__style" required>
+                            <input type="text" name="youQA" id="youQA" placeholder="나의 보물 1호는?" class="input__style" required>
                         </div>
                         <button type="submit" class="input__Btn">완료</button>
                     </section>
