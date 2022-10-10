@@ -112,6 +112,7 @@ fieldset{
 .login__cont legend{
     font-size: 16px;
 }
+.login__cont select,
 .login__cont input{
     padding: 15px;
     border-radius: 50px;
@@ -122,15 +123,30 @@ fieldset{
     font-size: 16px;
     text-align: center;
     box-sizing: border-box;
+    font-family: 'NanumSquare';
 }
+.login__cont div.Pass input{
+    font-family: 'SCoreDream';
+}
+
+.login__cont select:focus,
 .login__cont input:focus{
     outline: 1px solid #4B12A7
 }
+
 .login__cont div{
     position: relative;
 }
+.login__cont div:nth-child(1)::after,
 .login__cont div:nth-child(2)::after,
-.login__cont div:nth-child(3)::after{
+.login__cont div:nth-child(3)::after,
+.login__cont div:nth-child(4)::after,
+.login__cont div:nth-child(5)::after,
+.login__cont div:nth-child(6)::after,
+.login__cont div:nth-child(7)::after,
+.login__cont div:nth-child(8)::after,
+.login__cont div:nth-child(9)::after,
+.login__cont div:nth-child(10)::after{
     position: absolute;
     left: 26px;
     top: 2px;
@@ -150,10 +166,15 @@ fieldset{
 .login__cont div.Birth::after {
     content: '년도 - 월 - 일';
 }
+.login__cont div.youQA::after {
+    content: '내 답변';
+}
 .login__cont div.QA::after {
     content: '질문/답변';
 }
-
+.login__cont div.Gender::after {
+    content: '성별';
+}
 /* .login__cont div:nth-child(3) input{
     margin-bottom: 0px;
 } */
@@ -239,7 +260,7 @@ fieldset{
 }
 /* agree */
 .agree__cont .agree-desc{
-    height: 269px;
+    height: 120px;
     overflow-x: hidden;
     overflow-y: scroll;
     margin-bottom: 20px;
@@ -314,4 +335,15 @@ fieldset{
     font-weight: 900;
     padding: 20px 0 30px 0;
 }
+/* 회원가입 완료 css */
+.loginComple-word {
+    font-size: 16px;
+    color: #4b12a7;
+    padding-top: 28px;
+    margin-bottom: 34px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
 
+}

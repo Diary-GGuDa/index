@@ -42,11 +42,12 @@
                 </div>
             </div>
             <div class="board">
+                
                 <!-- <a href="boardModify.php?myBoardID=<?=$myBoardID?>">수정</a> -->
                 <div class="board_info">
-                    <img class="notice_logo" src="../assets/img/site_board_edit.png" alt="">
-                    <h2>내 글 수정</h2>
-                    <p>수정할 내용을 확인하여 주세요!</p>
+                    <img class="notice_logo" src="../assets/img/site_board_write.png" alt="">
+                    <h2>내 글 작성</h2>
+                    <p>작성할 내용을 확인하여 주세요!</p>
                     <img src="../assets/img/site_board_notice_cross.png" alt="">
                     <!-- <div class="section_selector">
                         <a class="select" href="#">공지사항</a>
@@ -54,20 +55,28 @@
                     </div> -->
                 </div>
                 <div class="section_selector">
-                    <a class="select edit_btn" href="board_ModifySave.html">수정완료</a>
-                    <a class="select remove_btn" href="board_ModifyDelete.html">삭제</a>
+                    <a class="select edit_btn" href="board.html">완료</a>
+                    <a class="select remove_btn" href="board.html">취소</a>
                 </div>
                 <hr>
                 <div class="board__view">
-                    <form name="agree" action="agreeSave.php" method="post">
+                    <form name="boardWrite" action="boardWriteSave.php" method="post">
                         <fieldset>
                             <legend class="ir">회원가입을 위한 정보 입력영역</legend>
-                            <section class="modify">
-                                <div style="height:52px; margin-bottom:20px;" class="Title write">
-                                    <label for="youEmal" class="ir">제목</label>
-                                    <input type="text" name="youtitle" id="youtitle" placeholder="제목을 입력해주세요" class="input__style view-title edit write" required>
+                            <section class="boardWrite">
+                                <div style="display: flex; justify-content:center; margin-bottom: 20px; height: 52px;">
+                                    <div class="Option write" style="margin-right:10px; width: 25%;">
+                                        <select name="searchOption" id="searchOption">
+                                            <option value="notion">공지</option>
+                                            <option value="event">이벤트</option>
+                                        </select>
+                                    </div>
+                                    <div class="Title write">
+                                        <label for="youEmal" class="ir">제목</label>
+                                        <input type="text" name="youtitle" id="youtitle" placeholder="제목을 입력해주세요" class="input__style view-title edit write new" required>
+                                    </div>
                                 </div>
-                                <p class="modify-time"> notice | 2022.09.19 </p>
+                                <p class="write-time"> notice | 2022.09.19 </p>
                                 <div class="edit_function" alt="편집기능 이미지">
                                     <button id="btn-bold">
                                         <b>가</b>
