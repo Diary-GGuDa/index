@@ -8,7 +8,7 @@
     // $sql = "SELECT youEmail, youNickName FROM myAdminMember WHERE youEmail = '{$youEmail}'";
     // $sql = "SELECT youEmail, youNickName FROM myAdminMember WHERE youNickName = '{$youNickName}'";
 
-    $sql = "SELECT youEmail, youNickName FROM myAdminMember ";
+    $sql = "SELECT youEmail FROM myMember ";
 
     if( $type == "emailCheck"){
         $youEmail = $connect -> real_escape_string(trim($_POST['youEmail']));

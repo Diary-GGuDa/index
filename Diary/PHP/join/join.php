@@ -30,7 +30,7 @@
                                 <p class="msg" id="youNameComment"><!---* 이름을 작성해주세요.---></p>
                             </div>
                             <div class="Email overlap">
-                                <label for="youEmail" class="ir">아이디</label>
+                                <label for="youEmail" class="ir">이메일</label>
                                 <input type="email" name="youEmail" id="youEmail" placeholder="이메일" class="input__style" required>
                                 <a href="#c" class="check" onclick="emailChecking()">중복 확인</a>
                                 <p class="msg" id="youEmailComment"><!--- * 이메일이 존재합니다.---></p>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="Birth">
                                 <label for="youBirth" class="ir">년도 - 월 - 일</label>
-                                <input type="data" name="youBirth" id="youBirth" placeholder="년도" class="input__style" required>
+                                <input type="text" name="youBirth" id="youBirth" placeholder="년도" class="input__style" required>
                                 <p class="msg" id="youBirthComment"><!--- * 올바른 년도를 골라주세요.---></p>
                             </div>
                             <div style="display: flex; justify-content: space-between;">
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="QA" style="width:65%">
                                     <select name="searchQA" id="searchQA" class="input__style" required>
-                                        <option value="QA">나의 보물 1호</option>
+                                        <option value="QA">나의 보물 1호</option>ㅋ
                                     </select>
                                     <p class="msg" id="searchQAComment"><!--- * 질문을 설정해주세요.---></p>
                                 </div>
@@ -80,20 +80,20 @@
             let youEmail = $("#youEmail").val();
 
             if(youEmail == null || youEmail == ''){
-                $("#youEaillCommnent").text("이메일을 입력해주세요 :3")
+                $("#youEmailComment").text("이메일을 입력해주세요 :3")
             }else {
                 $.ajax({
                     type : "POST",
-                    url : "adminJoinCheck.php",
+                    url : "joinCheck.php",
                     data : {"youEmail" : youEmail, "type" : "emailCheck"},
                     dataType : "json",
 
                     success : function(data){
                         if(data.result == "good"){
-                            $("#youEaillCommnent").text("사용 가능한 이메일 입니다! :3");
+                            $("#youEmailComment").text("사용 가능한 이메일 입니다! :3");
                             emailCheck = true;
                         }else {
-                            $("#youEaillCommnent").text("이미 존재하는 이메일 입니다 ;3");
+                            $("#youEmailComment").text("이미 존재하는 이메일 입니다 ;3");
                             emailCheck = false;
                         }
                     },
@@ -110,21 +110,21 @@
         function joinChecks(){
             // 이메일 공백 검사
             if($("#youEmail").val() == ''){
-                $("#youEaillComment").text("이메일을 입력해주세요.");
+                $("#youEmailComment").text("이메일을 입력해주세요.");
                 return false;
             }
 
             // 이메일 유효성 검사
             let getYouEmail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
             if(!getYouEmail.test($("#youEmail").val())){
-                $("#youEaillComment").text("이메일을 형식에 맞게 작성해주세요.");
+                $("#youEmailComment").text("이메일을 형식에 맞게 작성해주세요.");
                 $("#youEmail").val('');
                 return false;
             }
 
             // 이메일 중복 검사
             if(emailCheck == false){
-                $("#youEaillComment").text("이메일 중복검사를 해주세요.");
+                $("#youEmailComment").text("이메일 중복검사를 해주세요.");
                 return false;
             }
 
@@ -175,7 +175,7 @@
             // 생년월일 유효성 검사
             let getYouBirth = RegExp(/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/);
             if(!getYouBirth.test($("#youBirth").val())){
-                $("#youBirthComment").text("생년월일이 정확하지 않습니다. 올바른 생년월일(YYYY-MM-DD)을 적어주세요.");
+                $("#youBirthComment").text("올바른 생년월일(YYYY-MM-DD)을 적어주세요.");
                 return false;
             }
 

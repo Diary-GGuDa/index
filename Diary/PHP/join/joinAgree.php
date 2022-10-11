@@ -21,7 +21,7 @@
                     <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
                 </div>
                 <div class="agree__cont">
-                    <form name="agree" action="agreeSave.php" method="post">
+                    <form name="agree" action="join.php" method="post">
                         <fieldset>
                             <legend class="ir">회원가입을 위한 약관 확인 영역</legend>
                             <section class="joinAgree">
@@ -84,7 +84,7 @@
                                         <input type="checkbox" name="agreeCheck1" id="agreeCheck2" class="agreeCheck">
                                         <label for="agreeCheck2">이용약관에 동의합니다.</label>
                                     </div>
-                                    <button type="submit" class="input__Btn"><a href="join.php">동의</a></button>
+                                    <button type="submit" class="input__Btn">동의</button>
                             </section>
                         </fieldset>
                     </form>
@@ -95,27 +95,26 @@
     </div>
 </body>
     <script>
+    //체크 표시 검사
+    const isCheck= document.querySelectorAll(".agreeCheck")
+    const agree = document.querySelector(".input__Btn")
+    const text = document.querySelector(".login-txt p")
 
-        //체크 표시 검사
-        const isCheck= document.querySelectorAll(".agreeCheck")
-        const agree = document.querySelector(".input__Btn")
-        const text = document.querySelector(".login-txt p")
+    //동의 버튼에 클릭 발생시
+    agree.addEventListener("click", (nextPage)=>{
+        //#agreeCheck1 각 요소에
+        isCheck.forEach((e,i)=>{
+            //각각 체크 검사시 안되어있다면
+            if(e.checked == false){
+                // 체크박스를 다시 확인해달라는 메세지를 표시 및 서식 적용.
+                text.innerText = "체크박스를 다시 확인해주세요!"
+                text.classList.add("fail")
+                text.style.display="block"
 
-        //동의 버튼에 클릭 발생시
-        agree.addEventListener("click", (nextPage)=>{
-            //#agreeCheck1 각 요소에
-            isCheck.forEach((e,i)=>{
-                //각각 체크 검사시 안되어있다면
-                if(e.checked == false){
-                    // 체크박스를 다시 확인해달라는 메세지를 표시 및 서식 적용.
-                    text.innerText = "체크박스를 다시 확인해주세요!"
-                    text.classList.add("fail")
-                    text.style.display="block"
-
-                    //다음 페이지로의 이동 이벤트를 막았습니다.
-                    nextPage.preventDefault()
-                }
-            })
+                //다음 페이지로의 이동 이벤트를 막았습니다.
+                nextPage.preventDefault()
+            }
         })
+    })
     </script>
 </html>
