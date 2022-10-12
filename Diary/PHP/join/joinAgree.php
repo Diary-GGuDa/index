@@ -17,7 +17,7 @@
                     <div class="login-txt">
                         <p>하단에 적힌 약관을 확인해주시길 바랍니다!</p>
                         <!-- <p class="fail">약관을 동의해주세요!</p> -->
-                    </div>
+                    </div>      
                     <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
                 </div>
                 <div class="agree__cont">
