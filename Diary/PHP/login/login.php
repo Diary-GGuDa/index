@@ -16,7 +16,6 @@
                     <h3>LOGIN</h3>
                     <div class="login-txt">
                         <p>개인정보를 이곳에 입력해주세요!</p>
-                        <p class="fail">아이디 비밀번호를 다시 확인해주세요!</p>
                     </div>
                     <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
                 </div>

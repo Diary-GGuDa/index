@@ -16,11 +16,66 @@
                     <h3>LOGIN</h3>
                     <div class="login-txt">
                         <p>개인정보를 이곳에 입력해주세요!</p>
-                        <p class="fail">아이디 비밀번호를 다시 확인해주세요!</p>
                     </div>
                     <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
                 </div>
                 <div class="login__cont">
+                   
+<?php
+    include "../../connect/connect.php";
+    include "../../connect/session.php";
+
+    $youEmail = $_POST['youEmail'];
+    $youPass = $_POST['youPass'];
+
+    // echo $youEmail,$youPass;
+
+    // 여러분의 정보 ---> 쿠키() / 세션 
+
+    function msg($alert){
+        echo "<p class ='fail'>($alert)</p>";
+    }
+
+    // 이메일 검사
+    if( !filter_var($youEmail, FILTER_VALIDATE_EMAIL)){
+        echo "<p class ='fail'>이메일이 잘못 되었습니다. <br>올바른 이메일을 적어주세요 ;3</p>";
+        exit;
+    }
+
+     // 비밀번호 검사
+     if( $youPass == null || $youPass == '' ){
+        echo "<p class ='fail'>비밀번호가 잘못 되었습니다. <br>올바른 비밀번호를 적어주세요 ;3</p>";
+        exit;
+    }
+
+    // 데이터 가져오기 --> 유효성 검사 --> 데이터 조회 --> 로그인
+    $sql = "SELECT myMemberID, youEmail, youName, youPass FROM myMember WHERE youEmail = '$youEmail' AND youPass = '$youPass'";
+    $result = $connect -> query($sql);
+
+    if($result){
+        $count = $result -> num_rows;
+
+        if($count == 0){
+            echo "<p class ='fail'>이메일 또는 비밀번호가 틀렸습니다 ;3</p>";
+            
+        }else{
+            $info = $result -> fetch_array(MYSQLI_ASSOC);
+
+            $_SESSION['myMemberID'] = $info['myMemberID'];
+            $_SESSION['youEmail'] = $info['youEmail'];
+            $_SESSION['youName'] = $info['youName'];
+
+            // echo "<pre>";
+            // var_dump($info);
+            // echo "</pre>";
+
+            // HEADER("Location : ../main/main.php");
+            msg("로그인 성공 :3");
+        }
+    }else{
+        msg("에러발생 - 관리자에게 문의해주세요 :3");
+    }
+?>
                     <form name="login" action="loginSave.php" method="post">
                         <fieldset>
                             <legend class="ir">로그인 입력폼</legend>
@@ -42,6 +97,7 @@
                             <button type="submit" class="input__Btn">로그인</button>
                         </fieldset>
                     </form>
+
                 </div>
                 <button type="button" class="btn-close"><img src="../../assets/img/login_close.png" alt=""></button>
             </div>

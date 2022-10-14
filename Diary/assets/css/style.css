@@ -1,6 +1,11 @@
 @import url('https://webfontworld.github.io/score/SCoreDream.css');
 @import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
 
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+@import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
+@import url('https://webfontworld.github.io/elice/EliceDigitalBaeum.css');
+@import url('https://webfontworld.github.io/dgb/IMHyemin.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +38,9 @@ a {
     text-decoration: none;
     text-transform: uppercase;
 }
+.show{
+    display: block !important;
+}
 /* 로그인 */
 .login-divider{
     width: 40px;
@@ -44,11 +52,13 @@ fieldset{
     border: none;
 }
 .login__popup{
+    /* display: none; */
     position: fixed;
     width: 100%;
     height: 100%;
     background: #00000045;
     backdrop-filter: blur(10px);
+    z-index: 10000;
 }
 .login__inner{
     position: absolute;
@@ -98,12 +108,13 @@ fieldset{
     padding: 10px 0;
     margin-bottom: 10px;
 }
-.login-txt .fail{
+.fail{
     background: #ff416e14;
     color: #FF416E;
     border-radius: 50px;
     padding: 10px 0;
-    display: none;
+    font-size: 16px;
+    /* display: none; */
 }
 .login__cont{
     width: 100%;
@@ -391,4 +402,492 @@ fieldset{
     text-align: center;
     white-space: nowrap;
 
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 메인 */
+html {
+    overflow-x: hidden;
+}
+
+.scroll {
+    position: fixed;
+    bottom: 150px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    transition: padding 0.25s;
+}
+
+.scroll p {
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+.header {
+    border-bottom: 1px solid #ededed;
+    box-shadow: 0px 20px 55px -30px #0000002e;
+    padding: 10px 0;
+    background: #ffffffb3;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(7px);
+    transition: 0.25s;
+}
+
+.header_ctrl {
+    padding: 0;
+    transition: 0.25s;
+}
+
+.header_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1160px;
+}
+
+.header_inner p {
+    font-size: 16px;
+    padding: 0 30px;
+}
+
+.profile_cont {
+    position: relative;
+}
+
+.profile_cont img {
+    display: block;
+}
+
+.profile_cont img:nth-child(2) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 5px;
+    border: 1px solid #EDEDED;
+    background: #fff;
+}
+
+/* 여기서부터 쭉 [인트로 페이지 1] */
+
+.intro_page.one img:nth-child(2) {
+    position: absolute;
+    top: 150px;
+    right: 0;
+}
+
+.particle {
+    transition: opacity 0.25s;
+}
+
+.particle:nth-child(4) {
+    position: fixed;
+    bottom: 340px;
+    right: 120px;
+    filter: blur(2px);
+    animation: hover 1.5s 0.5s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(5) {
+    position: fixed;
+    top: 500px;
+    right: 150px;
+    animation: hover2 1.2s 0.8s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(6) {
+    position: fixed;
+    top: 394px;
+    right: 350px;
+    filter: blur(1px);
+    animation: hover 1.9s 0.2s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(7) {
+    position: fixed;
+    top: 500px;
+    left: 123px;
+    animation: hover2 1.2s 0.5s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(8) {
+    position: fixed;
+    top: 100px;
+    left: 845px;
+    animation: hover 2.1s 0.3s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(9) {
+    position: fixed;
+    top: 200px;
+    left: 224px;
+    filter: blur(1px);
+    animation: hover2 1.8s 0.1s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(10) {
+    position: fixed;
+    bottom: 323px;
+    left: 394px;
+    filter: blur(1px);
+    animation: hover2 1.5s 0.8s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(11) {
+    position: fixed;
+    top: 560px;
+    left: 604px;
+    filter: blur(3px);
+    animation: hover 2.3s 0.7s infinite alternate;
+    z-index: -1;
+}
+
+.particle:nth-child(12) {
+    position: fixed;
+    bottom: 200px;
+    right: 124px;
+    filter: blur(1px);
+    animation: hover2 2.1s 0.2s infinite alternate;
+    z-index: -1;
+}
+
+.intro_page {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo__cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.logo__cont p {
+    font-size: 22px;
+    font-family: 'EliceDigitalBaeum';
+}
+
+.logo__cont em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+@keyframes hover {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, 20px);
+    }
+}
+
+@keyframes hover2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0, 30px) rotate(90deg);
+    }
+}
+
+.cover {
+    width: 105vw;
+    display: flex;
+    /* height: 16px; */
+}
+
+.cover p {
+    font-size: 16px;
+}
+
+.cover:nth-child(1) {
+    transform: rotate(-2deg);
+    color: #fff;
+    border-top: 1px solid #4B12A7;
+    border-bottom: 1px solid #4B12A7;
+    padding: 6px;
+
+}
+
+.cover:nth-child(2) {
+    transform: rotate(2deg);
+    justify-content: flex-end;
+    border-top: 1px solid #EBEBF6;
+    border-bottom: 1px solid #EBEBF6;
+    padding: 6px;
+}
+
+.cover:nth-child(1) p {
+    display: flex;
+    font-size: clamp(2vw, 8vw, 5rem);
+    background-color: #4B12A7;
+    padding: 15px 0;
+    font-size: 16px;
+    font-family: 'EliceDigitalBaeum';
+}
+
+.cover:nth-child(2) p {
+    display: flex;
+    font-size: clamp(2vw, 8vw, 5rem);
+    background-color: #EBEBF6;
+    padding: 15px 0;
+    font-size: 16px;
+    font-family: 'EliceDigitalBaeum';
+}
+
+/* 여기서부터 쭉 [인트로 페이지 2] */
+.two h2 {
+    font-size: 60px;
+    line-height: 1.4;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.two em {
+    font-style: normal;
+    color: #2B0667;
+}
+
+.two_text_cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.two_text_cont em {
+    border: 1px solid #ededed;
+    padding: 10px;
+    border-radius: 15px;
+    background: #ffffff7d;
+    /* backdrop-filter: blur(15px); */
+}
+
+.btn_scroll_top {
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    background: #4b12a7;
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    transition: 0.25s;
+    padding: 5px 27px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn_scroll_top a {
+    color: #fff;
+    font-family: 'EliceDigitalBaeum';
+    font-size: 22px;
+}
+
+
+/* 여기서부터 쭉 [인트로 페이지 3] */
+.three h2 {
+    margin-bottom: 20px;
+}
+.intro_input{
+    background: #ffffff57;
+    font-family: 'IMHyemin';
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #721aff72;
+    width: 700px;
+    min-height: 252px;
+    font-size: 20px;
+    line-height: 1.4;
+    backdrop-filter: blur(5px);
+    resize: none;
+    margin-bottom: 40px;
+}
+.intro_input img{
+    max-width: 60%;
+    border-radius: 25px;
+}
+.intro_input li{
+    margin-left: 30px;
+}
+.intro_input:focus{
+    outline: 1px solid #721aff;
+}
+
+/* 편집기능 */
+.edit_function {
+    background: #fff;
+    padding: 0 20px;
+    height: 60px;
+    box-shadow: 0px 20px 20px -5px rgb(0 0 0 / 7%);
+    display: flex;
+    border-radius: 50px;
+    border: 1px solid #ededed;
+    align-items: center;
+    margin-bottom: 70px;
+    justify-content: center;
+}
+.edit_function button{
+    background: none;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    transition: 0.25s;
+    border-radius: 54% 46% 53% 47% / 45% 48% 52% 55%;
+    cursor: pointer;
+    font-family: 'IMHyemin';
+}
+.edit_function button:hover{
+    background: #2B0667;
+    color: #fff;
+    padding: 10px;
+    transform: scale(1.3);
+}
+.edit_function button:not(:hover){
+    transition: 0.25s;
+}
+.edit_function button.active {
+    background-color: purple;
+    color: #FFF;
+}
+
+.edit_function img {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.edit_function img:last-child {
+    margin-right: 0;
+}
+
+/* 편집화면 */
+.gguda_desc {
+    margin-bottom: 70px;
+}
+
+/* .gguda_desc p {
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'IMHyemin';
+} */
+
+/* 스티커 보관함 */
+.sticker{
+    border: 1px solid rgba(255, 255, 255, 0);
+    transition: border 0.25s;
+}
+.sticker_cont {
+    background: #F9F9FC;
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid #e1e1f3;
+    height: 100px;
+}
+
+.sticker_cont p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.484);
+    text-align: center;
+}
+
+/* 여기서부터 쭉 [메인] */
+/* 유튜브 */
+.youtube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main p,
+.main h2 {
+    text-align: center;
+}
+
+.main h2 {
+    font-size: 26px;
+    font-family: 'SCoreDream';
+}
+
+.main p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.main .cross {
+    margin-bottom: 20px;
+}
+
+.youtube_cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.youtube_cont_item_01 {
+    position: relative;
+    margin-right: 20px;
+}
+
+/* 임시 : 바로 아래 한줄 */
+.youtube_cont_item_01:last-child {
+    margin-right: 0px;
+}
+
+.youtube_cont_item_01 h2,
+.youtube_cont_item_01 p {
+    text-align: left;
+}
+
+.youtube_cont_item_01 img {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.youtube_cont_item_01 p:nth-child(3) {
+    background: #F9F9FC;
+    border: 1px solid #E3E5F0;
+    border-radius: 50px;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+}
+
+.youtube_cont_item_01 img:nth-child(1) {
+    position: absolute;
+    top: 130px;
+    right: 20px;
+}
+
+.youtube_cont_item_01 img:nth-child(2) {
+    border-radius: 20px;
 }

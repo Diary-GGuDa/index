@@ -15,12 +15,11 @@
                 <h3>INSERT</h3>
                 <div class="login-txt">
                     <p>개인정보를 이곳에 입력해주세요!</p>
-                    <p class="fail">모든 정보를 입력해주세요!</p>
                 </div>  
                 <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
             </div>
             <div class="login__cont">
-                <form name="join" action="joinSave.php" method="post" onsubmit = "return joinChecks()" >
+                <form name="join" action="joinSave.php" method="post" onsubmit ="return joinChecks()" >
                     <fieldset>
                         <legend class="ir">회원가입을 위한 정보 입력영역</legend>
                         <section class="joinAgree">
@@ -65,7 +64,7 @@
                                 <input type="text" name="youQA" id="youQA" placeholder="나의 보물 1호는?" class="input__style" required>
                                 <p class="msg" id="youQAComment"><!--- * 질문에 대한 답변을 작성해주세요.---></p>
                             </div>  
-                            <button type="submit" class="input__Btn">완료</button>
+                            <button class="input__Btn" type="submit">확인</button>
                         </section>
                     </fieldset>
                 </form>
@@ -74,9 +73,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        
-
+    <script>        
         let emailCheck = false;
         function emailChecking(){
             let youEmail = $("#youEmail").val();
@@ -117,7 +114,7 @@
             }
 
             // 이메일 유효성 검사
-            let getYouEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;);
+            let getYouEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
             if(!getYouEmail.test($("#youEmail").val())){
                 $("#youEmailComment").text("이메일을 형식에 맞게 작성해주세요.");
                 $("#youEmail").val('');
@@ -181,20 +178,7 @@
                 return false;
             }
 
-            // 휴대폰번호 공백 검사
-            if($("#youPhone").val() == ''){
-                $("#youPhoneComment").text("휴대폰번호를 입력해주세요.");
-                return false;
-            }
-
-            // 휴대폰번호 유효성 검사
-            let getYouPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
-            if(!getYouPhone.test($("#youPhone").val())){
-                $("#youPhoneComment").text("휴대폰 번호가 정확하지 않습니다. 올바른 휴대폰번호(000-0000-0000)를 입력해주세요!");
-                $("#youPhone").val("");
-                return false;
-            }
-
+    
             // 성별 공백 검사
             if($("#youGender").val() == ''){
                 $("#youGenderComment").text("성별을 선택해주세요.");
