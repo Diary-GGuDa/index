@@ -18,13 +18,12 @@
     $myMemberID = $_SESSION['myMemberID'];
     // echo $myMemberID;
 
-    $sql = "INSERT INTO myboard(myMemberID, boardTitle, boardSection, boardContents, boardView, regTime) VALUES('$myMemberID','$boardTitle', '$boardSection','$boardContents', '$boardView', '$regTime')";
+    $sql = "INSERT INTO myBoard(myMemberID, boardTitle, boardSection, boardContents, boardView, regTime) VALUES('$myMemberID','$boardTitle', '$boardSection','$boardContents', '$boardView', '$regTime')";
     // $sql = "INSERT INTO myboard(myMemberID, boardTitle, boardContents, boardView, regTime) VALUES('$myMemberID','$boardTitle', '$boardContents', '$boardView', '$regTime')";
-    echo $sql;
     
     $connect -> query($sql);
+    // echo $result;
 ?>
-
 <script>
-    // location.href = "board.php";
-</script>   
+    location.href = "board.php";
+</script>

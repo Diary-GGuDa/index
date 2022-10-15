@@ -53,7 +53,6 @@
                 </div>
             </div>
             <div class="board">
-                <!-- <a href="boardModify.php?myBoardID=<?=$myBoardID?>">수정</a> -->
                 <div class="board_info">
                     <img class="notice_logo" src="../../assets/img/site_board_edit.png" alt="">
                     <h2>내 글 수정</h2>
@@ -64,13 +63,9 @@
                         <a href="#">이벤트</a>
                     </div> -->
                 </div>
-                <div class="section_selector">
-                    <a class="select edit_btn" href="board_ModifySave.html">수정완료</a>
-                    <a class="select remove_btn" href="board_ModifyDelete.html">삭제</a>
-                </div>
                 <hr>
                 <div class="board__view">
-                    <form name="agree" action="agreeSave.php" method="post">
+                    <form name="boardModify" action="boardModifySave.php" method="post">
                         <fieldset>
                             <legend class="ir">회원가입을 위한 정보 입력영역</legend>
                             <section class="modify">
@@ -79,16 +74,11 @@
     $myBoardID = $_GET['myBoardID'];
     // echo $myBoardID;
 
-    // $sql = "SELECT myBoardID, boardTitle, boardSection, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
     $sql = "SELECT myBoardID, boardTitle, boardSection , regTime, boardView, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
-
     $result = $connect -> query($sql);
     
-
-
     if($result){
         $info = $result->fetch_array(MYSQLI_ASSOC);
-
         echo "<div contenteditable='true' class='input__style view-title edit write'>".$info{'boardTitle'}."</div>";
     }
 ?>                                
@@ -121,17 +111,12 @@
 <?php
     $myBoardID = $_GET['myBoardID'];
     // echo $myBoardID;
-
     // $sql = "SELECT myBoardID, boardTitle, boardSection, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
     $sql = "SELECT myBoardID, boardTitle, boardSection , regTime, boardView, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
-
     $result = $connect -> query($sql);
     
-
-
     if($result){
-        $info = $result->fetch_array(MYSQLI_ASSOC);
-
+        $info = $result->fetch_array(MYSQLI_ASSOC); 
         echo "<div contenteditable='true' class='input__style view-cont edit'>".$info{'boardContents'}."</div>";
     }
 ?>  
@@ -146,8 +131,10 @@
                                 <a class="complete" href="board_ModifySave.html">수정</a>
                                 <a class="delete" href="board_ModifySave.html">삭제</a>
                             </div> -->
-
-
+                            <!-- <div class="section_selector"> -->
+                                <button class="select edit_btn" value="수정하기" type="submit">수정완료</button>
+                                <!-- <button class="select remove_btn" type="submit">삭제</button> -->
+                            <!-- </div> -->
                         </fieldset>
                     </form>
                 </div>

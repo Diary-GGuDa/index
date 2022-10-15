@@ -48,8 +48,10 @@
                 </div>
             </div>
             <div class="board">
-                <a class="modify_btn" href="boardModify.php?myBoardID=<?=$_GET['myBoardID']?>">수정</a>
-                <!-- <a href="boardModify.php?myBoardID=<?=$myBoardID?>">수정</a> -->
+                <div class="wail">
+                    <a class="modify_btn" href="boardModify.php?myBoardID=<?=$_GET['myBoardID']?>">수정</a>
+                    <a class="remo_btn" href="boardDelete.php?myBoardID=<?=$_GET['myBoardID']?>" onclick="alert('정말 삭제하시겠습니까? ;3')">삭제</a>
+                </div>
                 <div class="board_info">
                     <img class="notice_logo" src="../../assets/img/site_board_notice_logo.png" alt="">
                     <h2>NOTICE</h2>
@@ -74,7 +76,7 @@
 <?php
     $myBoardID = $_GET['myBoardID'];
 
-    //보드뷰 + 1(업데이트)
+    //보드뷰 + 1(업데이트)  
     $sql = "UPDATE myBoard SET boardView = boardView + 1 WHERE myBoardID = {$myBoardID}";
     $connect -> query($sql);
   

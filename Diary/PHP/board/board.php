@@ -86,7 +86,7 @@
                             </div>
                         </div> -->
 <?php
-$sql = "SELECT b.myBoardID, m.myMemberID, b.boardTitle, b.boardSection, b.boardContents, b.boardView, b.boardView, b.regTime FROM myBoard b JOIN myMember m ON (b.myMemberID = m.myMemberID) ORDER BY myBoardID";
+$sql = "SELECT b.myBoardID, m.myMemberID, b.boardTitle, b.boardSection, b.boardContents, b.boardView, b.boardView, b.regTime FROM myBoard b JOIN myMember m ON (b.myMemberID = m.myMemberID) ORDER BY myBoardID DESC";
 $result = $connect -> query($sql);
 
 if($result){
@@ -98,7 +98,7 @@ if($result){
             echo "<div class='board_list_contents'>";
             echo "<h2><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardTitle']."</a></h2>";
             echo "<div class='board_list_contents_info'>";
-            echo "<p class='contents_section'>".$info['boardSection']."</p>";
+            echo "<p class='contents_section'>".$info['boardSection']." |  </p>";
             echo "<p class='contents_date'>".date('Y-m-d H:i',$info['regTime'])."</p>";
             echo "<p class='contents_view'> 조회 수 : ".$info['boardView']."</p>";
             echo "</div>";

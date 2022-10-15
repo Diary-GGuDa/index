@@ -414,6 +414,24 @@ fieldset{
     border: 1px solid #FF416E !important;
 }
 
+.remo_btn {
+    position: fixed;
+    bottom: 125px;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding: 20px 0;
+    width: 170px;
+    text-align: center;
+    background: #ffffffc9;
+    border: 1px solid;
+    color: #FF416E;
+    border-radius: 50px;
+    font-size: 16px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2;
+}
+
 /* 내 글 수정/작성 : 편집 */
 /* 편집기능 */
 .edit_function {
@@ -635,6 +653,13 @@ fieldset{
 .remove_info .notice_logo{
     margin-bottom: 20px;
 }
+
+
+/* 하아.. */
+.wail {
+    display: flex;
+    justify-content: space-between; 
+} 
 
 /* 모바일 화면 */
 @media(max-width: 1160px){}
