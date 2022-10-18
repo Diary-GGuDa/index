@@ -23,13 +23,14 @@
                 <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
             </div>
             <div class="login__cont">
-                <form name="join" action="joinSave.php" method="post" onsubmit ="return joinChecks()"  enctype="multipart/form-data">
+                <form name="join" action="joinSave.php" method="post" onsubmit ="return joinChecks()" >
                     <fieldset>
                         <legend class="ir">회원가입을 위한 정보 입력영역</legend>
                         <section class="joinAgree">
-                            <div>
-                                <label for="blogFile">파일</label>
-                                <input type="file" name="blogFile" id="blogFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg, gif, png 파일만 넣어주세요!">
+                            <div class="name">
+                                <label for="youName" class="ir">이름</label>
+                                <input type="text" name="youName" id="youName" placeholder="이름" class="input__style" required>
+                                <p class="msg" id="youNameComment"><!---* 이름을 작성해주세요.---></p>
                             </div>
                             <div class="Email overlap">
                                 <label for="youEmail" class="ir">이메일</label>
@@ -42,38 +43,31 @@
                                 <input type="password" name="youPass" id="youPass" placeholder="비밀번호" class="input__style" required>
                                 <p class="msg" id="youPassComment"><!--- * 비밀번호를 작성해주세요.---></p>
                             </div>
+                            <div class="Birth">
+                                <label for="youBirth" class="ir">년도 - 월 - 일</label>
+                                <input type="text" name="youBirth" id="youBirth" placeholder="년도" class="input__style" required>
+                                <p class="msg" id="youBirthComment"><!--- * 올바른 년도를 골라주세요.---></p>
+                            </div>
                             <div style="display: flex; justify-content: space-between;">
-                                <div class="Gender" style="width:31%">
+                                <div class="Gender" style="width:30%">
                                     <select name="youGender" id="youGender" class="input__style" required>
                                         <option value="male">남자</option>
                                         <option value="female">여자</option>
                                     </select>
                                     <p class="msg" id="youGenderComment"><!--- * 성별을 설정해주세요---></p>
                                 </div>
-                                <div class="name" style="width:31%">
-                                    <label for="youName" class="ir">이름</label>
-                                    <input type="text" name="youName" id="youName" placeholder="군맨두" class="input__style" required>
-                                    <p class="msg" id="youNameComment"><!---* 이름을 작성해주세요.---></p>
-                                </div>
-                                <div class="Birth" style="width:31%">
-                                    <label for="youBirth" class="ir">년도 - 월 - 일</label>
-                                    <input type="text" name="youBirth" id="youBirth" placeholder="1997-08-09" class="input__style" required>
-                                    <p class="msg" id="youBirthComment"><!--- * 올바른 년도를 골라주세요.---></p>
-                                </div>
-                            </div>
-                            <div style="display: flex; justify-content: space-between;">
-                                <div class="QA" style="width:60%">
+                                <div class="QA" style="width:65%">
                                     <select name="searchQA" id="searchQA" class="input__style" required>
                                         <option value="QA">나의 보물 1호</option>
                                     </select>
                                     <p class="msg" id="searchQAComment"><!--- * 질문을 설정해주세요.---></p>
                                 </div>
-                                <div class="youQA" style="width:35%">
-                                    <label for="youQA" class="ir">답변</label>
-                                    <input type="text" name="youQA" id="youQA" placeholder="ex:나 자신" class="input__style" required>
-                                    <p class="msg" id="youQAComment"><!--- * 질문에 대한 답변을 작성해주세요.---></p>
-                                </div>  
                             </div>
+                            <div class="youQA">
+                                <label for="youQA" class="ir">답변</label>
+                                <input type="text" name="youQA" id="youQA" placeholder="나의 보물 1호는?" class="input__style" required>
+                                <p class="msg" id="youQAComment"><!--- * 질문에 대한 답변을 작성해주세요.---></p>
+                            </div>  
                             <button class="input__Btn" type="submit">확인</button>
                         </section>
                     </fieldset>

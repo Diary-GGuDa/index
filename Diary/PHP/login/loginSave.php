@@ -69,11 +69,13 @@
             // var_dump($info);
             // echo "</pre>";
 
-            // HEADER("Location : ../main/main.php");
-            msg("로그인 성공 :3");
+            // location.href = "../main/main.php";
+            Header("Location: ../main/main.php");
+            // msg("로그인 성공 :3");
         }
     }else{
         msg("에러발생 - 관리자에게 문의해주세요 :3");
+        Header("Location: ../main/main.php");
     }
 ?>
                     <form name="login" action="loginSave.php" method="post">
@@ -104,7 +106,6 @@
         </div>
     </div>
 </body>
-<script>
-  
-</script>
+<script src="../../assets/javascript/board.js"></script>
+
 </html>

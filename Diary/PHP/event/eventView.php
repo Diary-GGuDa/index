@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>이벤트</title>
     <link rel="stylesheet" href="../../assets/css/board.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
@@ -24,8 +24,7 @@
             <?php include "../include/header.php" ?>
 
             <div class="board">
-                <a class="modify_btn" href="boardModify.php?myBoardID=<?=$_GET['myBoardID']?>">수정</a>
-                <!-- <a href="boardModify.php?myBoardID=<?=$myBoardID?>">수정</a> -->
+                <a class="modify_btn" href="eventModify.php?myEventID=<?=$_GET['myEventID']?>">수정</a>
                 <div class="board_info">
                     <img src="../../assets/img/board_header_01.png" class="header_icon_01" alt="">
                     <img src="../../assets/img/board_header_02.png" class="header_icon_02" alt="">
@@ -43,10 +42,10 @@
                 </div>
                 <div class="section_selector">
                     <div class="section_container">
-                        <a class="select" href="board.php">공지사항</a>
-                        <a href="board.php">이벤트</a>
+                        <a href="../board/board.php">공지사항</a>
+                        <a class="select" href="event.php">이벤트</a>
                     </div>
-                    <form action="boardSearch.php" name="boardSearch" method="get" id="board_search">
+                    <form action="eventSearch.php" name="eventSearch" method="get" id="board_search">
                         <fieldset>
                             <legend class="ir">게시판 검색 영역</legend>
                             <select name="searchOption" id="searchOption">
@@ -61,19 +60,19 @@
                     <!-- <a class="section_search_button" href="#">
                         <img src="../../assets/img/search_btn.png" alt="">
                     </a> -->
-                    <a class="write_btn" href="boardWrite.php">글쓰기</a>
+                    <a class="write_btn" href="eventWrite.php">글쓰기</a>
                 </div>
                 <hr>
                 <div class="board__view">   
 <?php
-    $myBoardID = $_GET['myBoardID'];
+    $myEventID = $_GET['myEventID'];
 
     //보드뷰 + 1(업데이트)
-    $sql = "UPDATE myBoard SET boardView = boardView + 1 WHERE myBoardID = {$myBoardID}";
+    $sql = "UPDATE myEvent SET eventView = eventView + 1 WHERE myEventID = {$myEventID}";
     $connect -> query($sql);
   
     // echo $myBoardID;
-    $sql = "SELECT b.boardTitle, b.boardSection , b.regTime, b.boardView, b.boardContents FROM myBoard b JOIN myMember m ON(m.myMemberID = b.myMemberID) WHERE b.myBoardID = {$myBoardID}";
+    $sql = "SELECT e.eventTitle, e.boardSection , e.regTime, e.eventView, e.eventContents FROM myEvent e JOIN myMember m ON(m.myMemberID = e.myMemberID) WHERE e.myEventID = {$myEventID}";
     $result = $connect -> query($sql);
 
 
@@ -82,12 +81,12 @@
     //    echo "<pre>";
     //    var_dump($info);
     //    echo "</pre>";
-        echo "<h3 class='view-title'>".$info['boardTitle']."</h3>";
+        echo "<h3 class='view-title'>".$info['eventTitle']."</h3>";
         echo "<div class='view-info'>";
         echo "<p class='view-time'> ".$info['boardSection']." | ".date('Y-m-d H:i',$info['regTime'])." </p>";
-        echo "<p class='view-num'> 조회수 | ".$info['boardView']." </p>";
+        echo "<p class='view-num'> 조회수 | ".$info['eventView']." </p>";
         echo "</div>";
-        echo " <div class='view-cont'>".$info['boardContents']."</div>";
+        echo " <div class='view-cont'>".$info['eventContents']."</div>";
    }
 ?>
                 </div>

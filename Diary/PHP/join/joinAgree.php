@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 이용 약관 동의 </title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/board.css">
+    <!-- <link rel="stylesheet" href="../../assets/javascript/main.js"> -->
+
 </head>
 <body>
     <div class="wrap">
-        <div class="login__popup">
+        <div class="login__popup joinAgree">
             <div class="login__inner">
                 <div class="login__header">
                     <img src="../../assets/img/signin_agree_logo.png" alt="">
@@ -84,7 +87,7 @@
                                         <input type="checkbox" name="agreeCheck1" id="agreeCheck2" class="agreeCheck">
                                         <label for="agreeCheck2">이용약관에 동의합니다.</label>
                                     </div>
-                                    <button type="submit" class="input__Btn">동의</button>
+                                    <button type="submit" class="input__Btn agree">동의</button>
                             </section>
                         </fieldset>
                     </form>
@@ -92,9 +95,44 @@
                 <button type="button" class="btn-close"><img src="../../assets/img/login_close.png" alt=""></button>
             </div>
         </div>
+        <div class="site">
+            <div class="header">
+                <div class="header_inner">
+                    <img style="padding-right: 20px;" src="../assets/img/site_header_logo.png" alt="logo">
+                    <p>공지사항</p>
+                    <p>이벤트</p>
+                    <p>이달의 순위</p>
+                    <p>일기쓰기</p>
+                    <p>꾸미기</p>
+                    <p>정보</p>
+                    <p>고객센터</p>
+                    <div class="profile_cont" alt="로그인한 프로파일 이미지">
+                        <img src="../assets/img/site_header_profile.png" alt="logo">
+                        <img src="../assets/img/site_header_profile_heart.png" alt="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="intro">
+                <div class="intro_page one">
+                    <div class="logo__cont">
+                        <img src="../assets/img/site_intro_logo.png" alt="">
+                        <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
+                    </div>
+                    <img src="../assets/img/site_intro_stroke.svg" alt="">
+                    <div style="position:absolute; bottom: 25px;">
+                        <div class="cover">
+                            <p class="first-parallel"></p>
+                        </div>
+                        <div class="cover">
+                            <p class="second-parallel"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-    <script>
+<script>
     //체크 표시 검사
     const isCheck= document.querySelectorAll(".agreeCheck")
     const agree = document.querySelector(".input__Btn")
@@ -116,5 +154,92 @@
             }
         })
     })
-    </script>
+</script>
+<script>
+    //파티클 생성 10개
+    //설명 : 파티클(작은거/큰거) 하나하나 태그로 넣기에는 너무 길어져서 사용함
+    
+    const q = document.querySelector(".intro_page");
+    let size_que = Math.floor(Math.random() * 5) + 1;
+
+    for (let i = 1; i < 10; i++) {
+        if (i % 2 == 0) {
+            q.innerHTML += "<img class='particle' src='../../assets/img/site_intro_particle_001.png' alt=''>"
+        } else {
+            q.innerHTML += "<img class='particle' src='../../assets/img/site_intro_particle_002.png' alt=''>"
+        }
+    }
+
+
+
+    //marquee 효과 구현
+    //설명 : 기본적으로 천천히 흘러가고 스크롤에 따라 더 빠르게 흐름
+    const pTag1 = document.querySelector('.first-parallel')
+    const pTag2 = document.querySelector('.second-parallel')
+
+    const textArr1 =
+        'DREAMS BECOME TRUE ← [GGUDA] ← DREAMS BECOME TRUE ← [GGUDA] ← DREAMS BECOME TRUE ← [GGUDA] ← DREAMS BECOME TRUE ← [GGUDA] ← DREAMS BECOME TRUE ← [GGUDA] ← DREAMS BECOME TRUE ← [GGUDA] ←'
+        .split(' ')
+    const textArr2 =
+        'DREAMS BECOME TRUE → [GGUDA] → DREAMS BECOME TRUE → [GGUDA] → DREAMS BECOME TRUE → [GGUDA] → DREAMS BECOME TRUE → [GGUDA] → DREAMS BECOME TRUE → [GGUDA] → DREAMS BECOME TRUE → [GGUDA] →'
+        .split(' ')
+
+    let count1 = 0
+    let count2 = 0
+
+    initTexts(pTag1, textArr1)
+    initTexts(pTag2, textArr2)
+
+    function initTexts(element, textArray) {
+        textArray.push(...textArray)
+        for (let i = 0; i < textArray.length; i++) {
+            element.innerText += `${textArray[i]}\u00A0\u00A0\u00A0\u00A0`
+        }
+    }
+
+    function marqueeText(count, element, direction) {
+        if (count > element.scrollWidth / 2) {
+            element.style.transform = `translate3d(0, 0, 0)`
+            count = 0
+        }
+        element.style.transform = `translate3d(${direction * count}px, 0, 0)`
+
+        return count
+    }
+
+    function animate() {
+        count1++
+        count2++
+
+        count1 = marqueeText(count1, pTag1, -1)
+        count2 = marqueeText(count2, pTag2, 1)
+
+        window.requestAnimationFrame(animate)
+    }
+
+    function scrollHandler() {
+        count1 += 15
+        count2 += 15
+    }
+
+    window.addEventListener('scroll', scrollHandler)
+    animate()
+
+
+
+    const profileCont = document.querySelector(".profile_cont img");
+    const loginClose = document.querySelector(".btn-close");
+
+    loginClose.addEventListener("click", ()=>{
+        document.querySelector(".login__popup").classList.remove("show");
+    })
+
+    profileCont.addEventListener("click", ()=>{
+        document.querySelector(".login__popup").classList.add("show");
+    })
+
+    document.querySelector(".btn-close").addEventListener("click", ()=>{
+        history.back();
+    })
+</script>
 </html>

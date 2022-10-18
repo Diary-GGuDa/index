@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 꾸다 - 인덱스 </title>
+    <title>꾸다 - 로그인</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
                     <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
                 </div>
                 <div class="login__cont">
-                    <form name="login" action="loginSave.php" method="post">
+                    <form name="login" action="../login/loginSave.php" method="post">
                         <fieldset>
                             <legend class="ir">로그인 입력폼</legend>
                             <div class="Email">
@@ -33,8 +33,8 @@
                                 
                             </div>
                             <div class="btom-btn">
-                                <a href="#">아이디 찾기</a>
-                                <a href="#">비밀번호 찾기</a>
+                                <a href="../login/findID.php">아이디 찾기</a>
+                                <a href="../login/findPass.php">비밀번호 찾기</a>
                                 <a href="../join/joinAgree.php">회원가입</a>
                             </div>
                             <hr class="login-divider">
@@ -47,7 +47,5 @@
         </div>
     </div>
 </body>
-<script>
-  
-</script>
+<script src="../../assets/javascript/board.js"></script>
 </html>

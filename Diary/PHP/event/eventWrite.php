@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항-글쓰기</title>
+    <title>이벤트-글쓰기</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/board.css">
 </head>
@@ -49,7 +49,7 @@
                 </div>
                 <hr>
                 <div class="board__view">
-                    <form name="boardWrite" action="boardWriteSave.php" method="post">
+                    <form name="eventWrite" action="eventWriteSave.php" method="post">
                         <fieldset>
                             <legend class="ir">회원가입을 위한 정보 입력영역</legend>
                             <section class="boardWrite">
@@ -61,8 +61,8 @@
                                         </select>
                                     </div>
                                     <div class="Title write">
-                                        <label for="boardTitle" class="ir">제목</label>
-                                        <input type="text" name="boardTitle" id="youtitle" placeholder="제목을 입력해주세요" class="input__style view-title edit write new" required>
+                                        <label for="eventTitle" class="ir">제목</label>
+                                        <input type="text" name="eventTitle" id="youtitle" placeholder="제목을 입력해주세요" class="input__style view-title edit write new" required>
                                     </div>
                                 </div>
                                 <!-- <p class="write-time"> notice | 2022.09.19 </p> -->
@@ -91,9 +91,9 @@
                                     <input type="file" name="uploadfile" id="img-selector" accept="image/*" style="display:none;"/>
                                 </div>
                                 <div class="Desc">
-                                    <label for="boardContents" class="ir">내용</label>
+                                    <label for="eventContents" class="ir">내용</label>
                                     <!-- <input type="text" name="youCont" id="youCont" placeholder="내용을 입력해주세요" class="input__style view-cont edit" required> -->
-                                    <textarea name="boardContents" id="youCont" placeholder="내용을 입력해주세요" name="opinion" cols="20" rows="3" class="input__style view-cont edit" required></textarea>
+                                    <textarea name="eventContents" id="youCont" placeholder="내용을 입력해주세요" name="opinion" cols="20" rows="3" class="input__style view-cont edit" required></textarea>
                                 </div>
                                 <button type="submit" class="select edit_btn">완료</button>
                             </section>

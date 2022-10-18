@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항</title>
+    <title>이벤트</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/board.css">
 </head>
@@ -35,7 +35,7 @@
                     <img src="../../assets/img/board_header_04.png" class="header_icon_04" alt="">
                     <img src="../../assets/img/board_header_05.png" class="header_icon_05" alt="">
                     <!-- <img class="notice_logo" src="../../assets/img/site_board_notice_logo.png" alt=""> -->
-                    <h2>NOTICE</h2>
+                    <h2>EVENT</h2>
                     <?php
     if(isset($_GET['page'])){
         $page = (int) $_GET['page'];
@@ -47,7 +47,7 @@
         echo "<p>".$alert."건의 공지사항이 있어요!</p>";
     }
 
-    $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
+    $sql = "SELECT e.myEventID, e.eventTitle, e.eventContents, m.youName, e.regTime, e.eventView, e.boardSection FROM myEvent e JOIN myMember m ON(e.myMemberID = m.myMemberID)";
 
 
     $result = $connect -> query($sql);
@@ -61,10 +61,10 @@
                 <div class="section_selector">
                     
                     <div class="section_container">
-                        <a class="select" href="board.php">공지사항</a>
-                        <a href="../event/event.php">이벤트</a>
+                        <a href="../board/board.php">공지사항</a>
+                        <a class="select" href="event.php">이벤트</a>
                     </div>
-                    <form action="boardSearch.php" name="boardSearch" method="get" id="board_search">
+                    <form action="eventSearch.php" name="eventSearch" method="get" id="board_search">
                         <fieldset>
                             <legend class="ir">게시판 검색 영역</legend>
                             <select name="searchOption" id="searchOption">
@@ -79,7 +79,7 @@
                     <!-- <a class="section_search_button" href="#">
                         <img src="../../assets/img/search_btn.png" alt="">
                     </a> -->
-                    <a class="write_btn" href="boardWrite.php">글쓰기</a>
+                    <a class="write_btn" href="eventWrite.php">글쓰기</a>
                 </div>
                 <!-- <form action="boardSearch.php" name="boardSearch" method="get" id="board_search" style="display:none">
                     <fieldset>
@@ -108,7 +108,7 @@
     $viewNum = 10;
     $viewLimit = ($viewNum * $page) - $viewNum;
 
-    $sql = $sql."ORDER BY myBoardID DESC LIMIT {$viewLimit}, {$viewNum}";
+    $sql = $sql."ORDER BY myEventID DESC LIMIT {$viewLimit}, {$viewNum}";
     $result = $connect -> query($sql);
 
     if($result){
@@ -118,13 +118,13 @@
             for($i=1; $i <= $count; $i++){
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
                 echo "<div class='board_list_contents'>";
-                echo "<p class='contents_boardId'>".$info['myBoardID']."</p>";
+                echo "<p class='contents_boardId'>".$info['myEventID']."</p>";
                 echo "<img src='../../assets/img/site_header_profile.png' alt='프로필 이미지'>";
-                echo "<h2><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardTitle']."</a><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardContents']."</a></h2>";
+                echo "<h2><a href='eventView.php?myEventID={$info['myEventID']}'>".$info['eventTitle']."</a><a href='eventView.php?myEventID={$info['myEventID']}'>".$info['eventContents']."</a></h2>";
                 echo "<div class='board_list_contents_info'>";
                 echo "<p class='contents_section'>".$info['boardSection']."</p>";
                 echo "<p class='contents_date'>".date('Y-m-d H:i',$info['regTime'])."</p>";
-                echo "<p class='contents_view'>".$info['boardView']." VIEW</p>";
+                echo "<p class='contents_view'>".$info['eventView']." VIEW</p>";
                 echo "<p class='contents_view'>".$info['youName']."</p>";
                 echo "</div>";
                 echo "</div>";
@@ -157,8 +157,8 @@
     //이전 페이지, 처음 페이지
     if($page != 1){
         $prevPage = $page - 1;
-        echo "<li><a  href='board.php?page=1'>처음</a></li>";
-        echo "<li><a  href='board.php?page={$prevPage}'>이전</a></li>";
+        echo "<li><a href='event.php?page=1'>처음</a></li>";
+        echo "<li><a href='event.php?page={$prevPage}'>이전</a></li>";
     } 
 
     //페이지 넘버 표시
@@ -166,14 +166,14 @@
         $active = "";
         if($i == $page) $active = "active";
 
-        echo "<li class='{$active}'><a href = 'board.php?page={$i}'>{$i}</a></li>";
+        echo "<li class='{$active}'><a href = 'event.php?page={$i}'>{$i}</a></li>";
     }
 
     //다음 페이지, 마지막 페이지
     if($page != $endPage) {
         $nextPage = $page + 1;
-        echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
-        echo "<li><a href='board.php?page={$boardCount}'>마지막</a></li>";
+        echo "<li><a href='event.php?page={$nextPage}'>다음</a></li>";
+        echo "<li><a href='event.php?page={$boardCount}'>마지막</a></li>";
     }
 ?>
                     </ul>

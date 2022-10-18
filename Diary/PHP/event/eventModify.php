@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항-수정하기</title>
+    <title>이벤트-수정하기</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/board.css">
 </head>
@@ -40,18 +40,18 @@
                 </div>
                 <hr>
                 <div class="board__view">
-                <form action="boardModifySave.php" name="boardModify" method="post">
+                <form action="eventModifySave.php" name="eventModify" method="post">
                         <fieldset>
                             <legend class="blind">게시판 작성 영역</legend>
 <?php
-    $myBoardID = $_GET['myBoardID'];
-    $sql = "SELECT myBoardID, boardTitle, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
+    $myEventID = $_GET['myEventID'];
+    $sql = "SELECT myEventID, eventTitle, eventContents FROM myEvent WHERE myEventID = {$myEventID}";
     $result = $connect -> query($sql);
 
     if($result){
         $info = $result -> fetch_array(MYSQLI_ASSOC);
-        echo "<div style='display:none'><label for='myBoardID'>번호</label><input type='text' name='myBoardID' id='myBoardID' value='".$info['myBoardID']."'></div><div><label for='boardTitle' class='blind'>제목</label><input type='text' name='boardTitle' id='boardTitle' value='".$info['boardTitle']."'></div>";
-        echo "<div><label for='boardContents' class='blind'>내용</label><textarea name='boardContents' id='boardContents' rows='20'>".$info['boardContents']."</textarea></div>";
+        echo "<div style='display:none'><label for='myEventID'>번호</label><input type='text' name='myEventID' id='myBoardID' value='".$info['myEventID']."'></div><div><label for='eventTitle' class='blind'>제목</label><input type='text' name='eventTitle' id='boardTitle' value='".$info['eventTitle']."'></div>";
+        echo "<div><label for='eventContents' class='blind'>내용</label><textarea name='eventContents' id='boardContents' rows='20'>".$info['eventContents']."</textarea></div>";
     }
 ?>
                             <div>
@@ -72,7 +72,7 @@
                         </form> -->
                         <div class="wail">
                             <!-- <a class="modify_btn" href="boardModify.php?myBoardID=&lt;?=$_GET['myBoardID']?>">수정(다른방식)</a> -->
-                            <a class="select remove_btn" href="boardDelete.php?myBoardID=<?=$_GET['myBoardID']?>" onclick="alert('정말 삭제하시겠습니까? ;3')">삭제(다른방식)</a>
+                            <a class="select remove_btn" href="eventDelete.php?myEventID=<?=$_GET['myEventID']?>" onclick="alert('정말 삭제하시겠습니까? ;3')">삭제(다른방식)</a>
                         </div>
                 </div>
             </div>

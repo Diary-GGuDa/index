@@ -1,12 +1,3 @@
-<?php 
-    include "../../connect/connect.php";
-    include "../../connect/session.php";
-
-    // echo "<pre>";
-    // var_dump($_SESSION);
-    // echo "</pre>";
-?> 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -15,30 +6,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 꾸다 - 인덱스 </title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <!-- <link rel="stylesheet" href="../../assets/css/board.css"> -->
-
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<?php include "../include/header.php" ?>
     <!-- //header -->
+<body>
+    
     <div class="scroll">
         <p>스크롤을 내려보세요.</p>
-        <img src="../../assets/img/site_intro_scroll.png" alt="">
+        <img src="../assets/img/site_intro_scroll.png" alt="">
     </div>
-    <div class="wrap mainCtrl">
-        <?php include "../login/login.php" ?>
-
+    <div class="wrap">
+        <div style="display:none" class="login__popup">
+            <div class="login__inner">
+                <div class="login__header">
+                    <img src="../assets/img/login_logo.png" alt="">
+                    <h3>LOGIN</h3>
+                    <div class="login-txt">
+                        <p>개인정보를 이곳에 입력해주세요!</p>
+                        <p class="fail">아이디 비밀번호를 다시 확인해주세요!</p>
+                    </div>
+                    <img class="login-cross" src="../assets/img/login_cross.png" alt="">
+                </div>
+                <div class="login__cont">
+                    <form name="login" action="loginSave.php" method="post">
+                        <fieldset>
+                            <legend class="ir">로그인 입력폼</legend>
+                            <div>
+                                <label for="youEmail" class="ir">이메일</label>
+                                <input type="email" name="youEmail" id="youEmail" placeholder="이메일" class="input__style"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="youPass" class="ir">비밀번호</label>
+                                <input type="password" name="youPass" id="youPass" placeholder="비밀번호"
+                                    class="input__style" required>
+                            </div>
+                            <div class="btom-btn">
+                                <a href="#">아이디 찾기</a>
+                                <a href="#">비밀번호 찾기</a>
+                                <a href="#">회원가입</a>
+                            </div>
+                            <hr class="login-divider">
+                            <button type="submit" class="input__Btn">로그인</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="login__footer">
+                </div>
+                <button type="button" class="btn-close"><img src="../assets/img/login_close.png" alt=""></button>
+            </div>
+        </div>
+        <span class="btn_scroll_top">
+            <a href="#">^</a>
+        </span>
         <div class="site">
-            <?php include "../include/header.php" ?>
-            
+            <div class="header">
+                <div class="header_inner">
+                    <img style="padding-right: 20px;" src="../assets/img/site_header_logo.png" alt="logo">
+                    <p>공지사항</p>
+                    <p>이벤트</p>
+                    <p>이달의 순위</p>
+                    <p>일기쓰기</p>
+                    <p>꾸미기</p>
+                    <p>정보</p>
+                    <p>고객센터</p>
+                    <div class="profile_cont" alt="로그인한 프로파일 이미지">
+                        <img src="../assets/img/site_header_profile.png" alt="logo">
+                        <img src="../assets/img/site_header_profile_heart.png" alt="logo">
+                    </div>
+                </div>
+            </div>
             <div class="intro">
                 <div class="intro_page one">
                     <div class="logo__cont">
-                        <img src="../../assets/img/site_intro_logo.png" alt="">
+                        <img src="../assets/img/site_intro_logo.png" alt="">
                         <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
                     </div>
-                    <img src="../../assets/img/site_intro_stroke.svg" alt="">
-                    <div class="logo__cont__parallel">
+                    <img src="../assets/img/site_intro_stroke.svg" alt="">
+                    <div style="position:absolute; bottom: 25px;">
                         <div class="cover">
                             <p class="first-parallel"></p>
                         </div>
@@ -51,21 +97,21 @@
                     <div class="two_text_cont">
                         <h2>어 왔니?</h2>
                         <h2><em>다꾸용 물품</em>을(를) 찾아볼까?</h2>
-                        <div style="display:flex; flex-wrap: nowrap; align-items: center; overflow-x: hidden;">
+                        <div style="display:flex; flex-wrap: nowrap; align-items: center;">
                             <h2 style="display: inline;">모두 모아봤어</h2>
-                            <img style="display: inline;" src="../../assets/img/site_intro_arrow.png" alt="">
+                            <img style="display: inline;" src="../assets/img/site_intro_arrow.png" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="intro_page three">
                     <h2>편집기능까지.</h2>
                     <!-- <div class="edit_function" alt="편집기능 이미지">
-                        <img src="../../assets/img/function_edit_01.png" alt="얉게">
-                        <img src="../../assets/img/function_edit_02.png" alt="두껍게">
-                        <img src="../../assets/img/function_edit_03.png" alt="밑줄">
-                        <img src="../../assets/img/function_edit_04.png" alt="배경색상">
-                        <img src="../../assets/img/function_edit_05.png" alt="글씨색상">
-                        <img src="../../assets/img/function_edit_06.png" alt="정렬">
+                        <img src="../assets/img/function_edit_01.png" alt="얉게">
+                        <img src="../assets/img/function_edit_02.png" alt="두껍게">
+                        <img src="../assets/img/function_edit_03.png" alt="밑줄">
+                        <img src="../assets/img/function_edit_04.png" alt="배경색상">
+                        <img src="../assets/img/function_edit_05.png" alt="글씨색상">
+                        <img src="../assets/img/function_edit_06.png" alt="정렬">
                     </div> -->
                     <div class="edit_function" alt="편집기능 이미지">
                         <button id="btn-bold">
@@ -98,11 +144,11 @@
                     <div class="sticker_cont">
                         <p>원하는 스티커를 본문에 드래그 해보세요!</p>
                         <div style="display:flex">
-                            <img class="sticker" src="../../assets/img/function_edit_sticker_01.png" alt="얉게">
-                            <img class="sticker" src="../../assets/img/function_edit_sticker_02.png" alt="얉게">
-                            <img class="sticker" src="../../assets/img/function_edit_sticker_03.png" alt="얉게">
-                            <img class="sticker" src="../../assets/img/function_edit_sticker_04.png" alt="얉게">
-                            <img class="sticker" src="../../assets/img/function_edit_sticker_05.png" alt="얉게">
+                            <img class="sticker" src="../assets/img/function_edit_sticker_01.png" alt="얉게">
+                            <img class="sticker" src="../assets/img/function_edit_sticker_02.png" alt="얉게">
+                            <img class="sticker" src="../assets/img/function_edit_sticker_03.png" alt="얉게">
+                            <img class="sticker" src="../assets/img/function_edit_sticker_04.png" alt="얉게">
+                            <img class="sticker" src="../assets/img/function_edit_sticker_05.png" alt="얉게">
                         </div>
                     </div>
                 </div>
@@ -115,108 +161,45 @@
                 </div>
             </div>
             <div class="main">
-                <!-- 유튜브 -->
                 <div class="youtube">
                     <h2>YOUTUBE</h2>
                     <p>테스트</p>
-                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
+                    <img class="cross" src="../assets/img/site_main_cross.png" alt="">
                     <div class="youtube_cont">
-                        <div class="youtube_inner">
-
+                        <div class="youtube_cont_item_01">
+                            <img src="../assets/img/youtube_play_icon.png" alt="">
+                            <img src="../assets/img/youtube_thumb_01.png" alt="">
+                            <p>TIP</p>
+                            <h2>안녕하세요</h2>
+                            <p>너만 모르는 한가지 사실...!</p>
+                        </div>
+                        <div class="youtube_cont_item_01">
+                            <img src="../assets/img/youtube_play_icon.png" alt="">
+                            <img src="../assets/img/youtube_thumb_01.png" alt="">
+                            <p>TIP</p>
+                            <h2>안녕하세요</h2>
+                            <p>너만 모르는 한가지 사실...!</p>
+                        </div>
+                        <div class="youtube_cont_item_01">
+                            <img src="../assets/img/youtube_play_icon.png" alt="">
+                            <img src="../assets/img/youtube_thumb_01.png" alt="">
+                            <p>TIP</p>
+                            <h2>안녕하세요</h2>
+                            <p>너만 모르는 한가지 사실...!</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- 공지사항 -->
-                <div class="notice section_ctrl">
-                    <h2>NOTICE</h2>
+                <div class="notice">
+                    <h2>YOUTUBE</h2>
                     <p>테스트</p>
-                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
-                    <div class="notice_cont">
-                        <div class="notice_quick_cont">
-                            <img src="#" alt="">
-                            <p>NOTICE</p>
-                            <h2>공지사항</h2>
-                            <a href="#">더보기</a>
-                        </div>
-                        <div class="notice_list_cont">
-                            <ul>
-                                <li>DATE</li>
-                                <li>내용</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                            <ul>
-                                <li>2022.09.15</li>
-                                <li>너만 모는 한가지 사ㄹ...!</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 아티스트 -->
-                <div class="artist section_ctrl2">
-                    <h2>NOTICE</h2>
-                    <p>테스트</p>
-                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
-                    <div class="artist_cont">
-                        <div class="artist_list_item_01">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
-                        </div>
-                        <div class="artist_list_item_02">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
-                        </div>
-                        <div class="artist_list_item_03">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
-                        </div>
-                        <div class="artist_list_item_04">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
-                        </div>
-                        <div class="artist_list_item_05">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEARCH -->
-                <div class="search">
-                    <h2>SEARCH</h2>
-                    <p>테스트</p>
-                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
-                    <div class="search_cont">
-                        <select name="youGender" id="youGender" class="input__style" required>
-                            <option value="male">남자</option>
-                            <option value="female">여자</option>
-                        </select>
-                        <input type="text">
+                    <img class="cross" src="../assets/img/site_main_cross.png" alt="">
+                    <div class="notice_desc_cont">
+                        <div class="notice_quick_cont"></div>
+                        <div class="notice_list_cont"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <?php include "../include/footer.php" ?>
     </div>
 </body>
 <script>
@@ -228,9 +211,9 @@
 
     for (let i = 1; i < 10; i++) {
         if (i % 2 == 0) {
-            q.innerHTML += "<img class='particle' src='../../assets/img/site_intro_particle_001.png' alt=''>"
+            q.innerHTML += "<img class='particle' src='../assets/img/site_intro_particle_001.png' alt=''>"
         } else {
-            q.innerHTML += "<img class='particle' src='../../assets/img/site_intro_particle_002.png' alt=''>"
+            q.innerHTML += "<img class='particle' src='../assets/img/site_intro_particle_002.png' alt=''>"
         }
     }
 
@@ -296,10 +279,7 @@
     const particle = document.querySelectorAll(".particle")
     const plzScroll = document.querySelector(".scroll")
     const scrollUp = document.querySelector(".btn_scroll_top")
-    const profileClose = document.querySelector(".profile_cont_close")
-    const profile = document.querySelector(".profile_cont")
 
-    // let switcher = 0;
     function scroll() {
         let scrollTop = window.pageYoffest || document.documentElement.scrollTop || window.screenY;
         
@@ -307,36 +287,25 @@
             if (scrollTop >= 100) {
                 header.classList.add("header_ctrl");
                 plzScroll.style.opacity = "0";
-                scrollUp.style.transform = "scale(1) translatex(180px)";
-                profileClose.style.transform = "scale(1) translatex(-180px)";
-                e.style.opacity = "0.2";
-                // let switcher = 1;
-                
+                scrollUp.style.opacity = "1";
+                e.style.opacity = "0.2"
             } else {
                 header.classList.remove("header_ctrl");
                 plzScroll.style.opacity = "1";
-                scrollUp.style.transform = "scale(0) translatex(0)";
-                profileClose.style.transform = "scale(0) translatex(0)";
+                scrollUp.style.opacity = "0";
                 e.style.opacity = "1"
-                // let switcher = 0;
             }
         })
+
+        // document.querySelectorAll(".content__item").forEach(item => {
+        //     if(scrollTop > item.offsetTop-window.innerHeight/2){
+        //         item.classList.add("show")
+        //     }
+        // })
         requestAnimationFrame(scroll);
     }
+
     scroll(); //함수 호출
-
-    // console.log(switcher);
-
-    // function bouncingEffect(){
-    //     profile.classList.remove("anim");
-    //     void profile.offsetWidth;
-    //     profile.classList.add("anim");
-    // }
-    // if(switcher==0){
-    //     bouncingEffect();
-    // } else{
-    //     bouncingEffect();
-    // }
 
 
     // 스크롤 TOP 선택시 부드럽게 이동
@@ -537,43 +506,7 @@
     //                 e.style.transform = "translate("+ -centerPageX/(q*4)+"px, "+ -centerPageY/(q*4)+"px)";
     //             })
     //         }
-    //     }) 
-    const profileCont = document.querySelector(".loginplz");
-    const loginClose = document.querySelector(".btn-close");
-
-    loginClose.addEventListener("click", ()=>{
-        document.querySelector(".login__popup").classList.remove("show");
-    })
-
-    profileCont.addEventListener("click", ()=>{
-        document.querySelector(".login__popup").classList.add("show");
-    })
-
-    // document.querySelector(".btn-close").addEventListener("click", ()=>{
-    //     history.back();
-    // })
+    //     })  
 </script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            
-            url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%EB%8B%A4%EA%BE%B8&type=video&key=AIzaSyAp7wwVT_hzfA2mSXrrh-1ZUx7QCX3ogtk",
-            contentType : "application/json",
-            success : function(data) {
-                data.items.forEach(function(element, index) {
-                    $('.youtube_inner').append('<div class="youtube_item"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+element.id.videoId+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
-                });
-            },
-            complete : function(data) {
-            },
-            error : function(xhr, status, error) {
-                console.log("유튜브 요청 에러: "+error);
-            }
-        });
-    });
-</script>
-<!-- <script src="../../assets/javascript/board.js"></script> -->
+
 </html>

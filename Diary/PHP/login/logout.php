@@ -11,6 +11,6 @@
 ?>
 
 <script>
-    alert("로그아웃 :3");
-    location.href ="../login/login.php"
+    // alert("로그아웃 :3");
+    location.href="../main/main.php";
 </script>

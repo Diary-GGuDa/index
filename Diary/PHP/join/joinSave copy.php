@@ -33,17 +33,6 @@
     $searchQA = $connect -> real_escape_string(trim($searchQA));
     $youQA = $connect -> real_escape_string(trim($youQA));
 
-    // 테스트
-    $blogImgFile = $_FILES['blogFile'];
-    $blogImgSize = $_FILES['blogFile']['size'];
-    $blogImgType = $_FILES['blogFile']['type'];
-    $blogImgName = $_FILES['blogFile']['name'];
-    $blogImgTmp = $_FILES['blogFile']['tmp_name'];
-    
-    echo "<pre>";
-    var_dump($blogImgFile);
-    echo "</pre>";
-
     // $youPass = sha1("web".$youPass);
     // 회원가입
     $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', '$searchQA', '$youQA', '$regTime' )";
