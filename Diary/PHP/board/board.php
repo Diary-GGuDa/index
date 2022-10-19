@@ -47,7 +47,7 @@
         echo "<p>".$alert."건의 공지사항이 있어요!</p>";
     }
 
-    $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
+    $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, m.youImageFile, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
 
 
     $result = $connect -> query($sql);
@@ -59,7 +59,6 @@
                     <img src="../../assets/img/site_board_notice_cross.png" alt="">
                 </div>
                 <div class="section_selector">
-                    
                     <div class="section_container">
                         <a class="select" href="board.php">공지사항</a>
                         <a href="../event/event.php">이벤트</a>
@@ -76,23 +75,10 @@
                             aria-label="search" class="board_search" required>
                         </fieldset>
                     </form>
-                    <!-- <a class="section_search_button" href="#">
-                        <img src="../../assets/img/search_btn.png" alt="">
-                    </a> -->
-                    <a class="write_btn" href="boardWrite.php">글쓰기</a>
+                    <?php if( $_SESSION['myMemberID']==1||2||3 ){ ?>
+                        <a class="write_btn" href="boardWrite.php">글쓰기</a>
+                    <?php }?>
                 </div>
-                <!-- <form action="boardSearch.php" name="boardSearch" method="get" id="board_search" style="display:none">
-                    <fieldset>
-                        <legend class="ir">게시판 검색 영역</legend>
-                        <select name="searchOption" id="searchOption">
-                            <option value="title">제목</option>
-                            <option value="content">내용</option>
-                            <option value="name">닉네임</option>
-                        </select>
-                        <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!"
-                            aria-label="search" class="board_search" required>
-                    </fieldset>
-                </form> -->
                 <div class="board_list">
                     <div class="board_list_inner">
                         <div class='board_list_header'>
@@ -119,7 +105,7 @@
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
                 echo "<div class='board_list_contents'>";
                 echo "<p class='contents_boardId'>".$info['myBoardID']."</p>";
-                echo "<img src='../../assets/img/site_header_profile.png' alt='프로필 이미지'>";
+                echo "<img src='../../assets/img/blog/".$info['youImageFile']."' alt='프로필 이미지'>";
                 echo "<h2><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardTitle']."</a><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardContents']."</a></h2>";
                 echo "<div class='board_list_contents_info'>";
                 echo "<p class='contents_section'>".$info['boardSection']."</p>";
@@ -185,6 +171,6 @@
     </div>
 </body>
 <script src="../../assets/javascript/board.js"></script>
-<script src="../../assets/javascript/search.js"></script>
+<!-- <script src="../../assets/javascript/search.js"></script> -->
 <script src="../../assets/javascript/common.js"></script>
 </html>

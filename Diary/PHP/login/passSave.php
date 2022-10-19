@@ -1,7 +1,7 @@
 <?php 
    include "../../connect/connect.php";
    include "../../connect/session.php";
-   include "../../connect/sessionCheck.php";
+//    include "../../connect/sessionCheck.php";
 
     // echo "<pre>";
     // var_dump($_SESSION);
@@ -30,34 +30,28 @@
                 <div class="modify_info">
                     <img class="notice_logo" src="../../assets/img/site_board_edit_complete.png" alt="">
 <?php
-    $myBoardID = $_POST['myBoardID'];
-    $boardTitle = $_POST['boardTitle'];
-    $boardContents = $_POST['boardContents'];
-    $youPass = $_POST['youPass'];
-    $myMemberID = $_SESSION['myMemberID'];
+    if($_POST['checkPW'] == $_POST['recheckPW']){
 
-    $boardTitle = $connect -> real_escape_string($boardTitle);
-    $boardContents = $connect -> real_escape_string($boardContents);
+        $youEmail = $_POST['youEmail'];
+        $changePW = $_POST['checkPW'];
+        $changePW = sha1("web".$changePW);
+        
+        $youEmail = $_SESSION['youEmail'];
 
-    $sql = "SELECT youPass, myMemberID FROM myMember WHERE myMemberID = {$myMemberID}";
-    $result = $connect -> query($sql);
+        $sql = "SELECT youPass, youEmail FROM myMember WHERE youEmail = '{$youEmail}'";
+        $result = $connect -> query($sql);
 
-    $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
-
-    if($memberInfo['youPass'] === $youPass && $memberInfo['myMemberID'] === $myMemberID){
-        $sql = "UPDATE myBoard SET boardTitle = '{$boardTitle}', boardContents = '{$boardContents}' WHERE myBoardID = '{$myBoardID}'";
+        $sql = "UPDATE myMember SET youPass = '{$changePW}' WHERE youEmail = '{$youEmail}'";
         $connect -> query($sql);
-
-        var_dump ($sql);
-    } else {
-        echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한 번 확인해주세요.')</script>";
-        echo "<script>history.back();</script>";
+    
+    }else{
+        echo "<script>alert('이메일과 답변을 다시 확인해주세요 :3.'); history.back();</script>";
     }
 ?>
                     <!-- <h2>수정완료</h2> -->
                     <p class="cross">수정하신 내용이 반영되었습니다, 하단의 버튼을 눌러 확인해주세요!</p>
                     <img src="../../assets/img/site_board_notice_cross.png" alt= "">
-                    <button style="width:216px;" type="submit" class="input__Btn" ><a href="board.php">확인</a></button>
+                    <button style="width:216px;" type="submit" class="input__Btn" ><a href="../main/main.php">확인</a></button>
                 </div>
             </div>
         </div>

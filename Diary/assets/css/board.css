@@ -62,6 +62,12 @@ body{
     top: 110px;
     margin-bottom: 20px;
     z-index: 100;
+    background: #f8fafcbd;
+    backdrop-filter: blur(10px);
+    border: 1px solid #f8fafc;
+    border-radius: 100px;
+    box-sizing: border-box;
+    padding: 10px;
     width: 1160px;
 }
 .section_selector a{
@@ -167,6 +173,7 @@ body{
 }
 .board_list_contents img{
     width: 5%;
+    border-radius: 100px;
 }
 .board_list_contents h2{
     width: 50%;
@@ -447,8 +454,8 @@ body{
 }
 
 .view-title {
-    font-size: 46px;
-    font-weight: 900;
+    font-size: 26px;
+    font-weight: 700;
     padding: 30px 0;
     text-align: left;
     border-top: 1px solid #d4dde6;
@@ -470,13 +477,21 @@ body{
     justify-content: flex-start;
     padding: 20px 0;
     border-bottom: 1px solid #d4dde6;
+    align-items: center;
 }
-.view-time {
-    padding-right: 45px;
-    margin-bottom: 10px;
-    float: left;
+.view-info img{
+    width: 4%;
+    border-radius: 100px;
+    border: 1px solid #00000042;
+    margin-right: 10px;
+}
 
+.view-time {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #00000042;
 }
+
 .view-cont {
     font-size: 16px;
     padding: 20px 20px;
@@ -531,6 +546,54 @@ body{
 .modify-time {
     font-size: 14px;
     margin-bottom: 10px;
+}
+.prev-next-cont{
+    display: flex;
+    justify-content: space-between;
+    /* padding: 20px 0; */
+    border-bottom: 1px solid #d4dde6;
+    height: 60px;
+}
+.prev-next-cont p:hover em{
+    color: #fff !important;
+    transition: 0.25s;
+}
+.prev-next-cont p:hover{
+    background: #562ff3;
+    transition: 0.25s;
+    color: #fff;
+}
+.prev-next-cont p:not(:hover){
+    transition: 0.25s;
+}
+.prev-next-cont em{
+    font-style: normal;
+    color: #00000085;
+}
+.next em{
+    padding-right: 10px;
+    font-size: 14px;
+}
+.prev em{
+    padding-left: 10px;
+    font-size: 14px;  
+}
+p.next,
+p.prev{
+    width: 50%;
+}
+p.prev{
+    padding-left: 20px;
+    border-right: 1px solid #d4dde6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+p.next{
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 /* 글쓰기 */
 .write-time {

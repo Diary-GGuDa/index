@@ -34,7 +34,7 @@
                     <img src="../../assets/img/board_header_05.png" class="header_icon_05" alt="">
                     <!-- <img class="notice_logo" src="../../assets/img/site_board_notice_logo.png" alt=""> -->
                     <h2>NOTICE</h2>
-                    <p>게시물 내용을 확인해주세요!</p>
+                    <!-- <p>게시물 내용을 확인해주세요!</p> -->
                     <img src="../../assets/img/site_board_notice_cross.png" alt="">
                     <!-- <div class="section_selector">
                         <a class="select" href="#">공지사항</a>
@@ -44,7 +44,7 @@
                 <div class="section_selector">
                     <div class="section_container">
                         <a class="select" href="board.php">공지사항</a>
-                        <a href="../event/event.php">이벤트</a>
+                        <a href="board.php">이벤트</a>
                     </div>
                     <form action="boardSearch.php" name="boardSearch" method="get" id="board_search">
                         <fieldset>
@@ -68,35 +68,85 @@
 <?php
     $myBoardID = $_GET['myBoardID'];
 
+    //테스트
+    // $_SESSION['myBoardID'] = $myBoardID;
+
     //보드뷰 + 1(업데이트)
     $sql = "UPDATE myBoard SET boardView = boardView + 1 WHERE myBoardID = {$myBoardID}";
     $connect -> query($sql);
   
     // echo $myBoardID;
-    $sql = "SELECT b.boardTitle, b.boardSection, m.youImageFile, b.regTime, b.boardView, b.boardContents FROM myBoard b JOIN myMember m ON(m.myMemberID = b.myMemberID) WHERE b.myBoardID = {$myBoardID}";
+    $sql = "SELECT b.boardTitle, b.boardSection , b.regTime, b.boardView, b.boardContents FROM myBoard b JOIN myMember m ON(m.myMemberID = b.myMemberID) WHERE b.myBoardID = {$myBoardID}";
     $result = $connect -> query($sql);
 
 
     if($result){
        $info = $result -> fetch_array(MYSQLI_ASSOC);
+    //    echo "<pre>";
+    //    var_dump($info);
+    //    echo "</pre>";
         echo "<h3 class='view-title'>".$info['boardTitle']."</h3>";
         echo "<div class='view-info'>";
-        echo "<img src='../../assets/img/blog/".$info['youImageFile']."' alt='프로필 이미지'>";
         echo "<p class='view-time'> ".$info['boardSection']." | ".date('Y-m-d H:i',$info['regTime'])." </p>";
-        echo "<p class='view-num'> 조회수 ".$info['boardView']." </p>";
+        echo "<p class='view-num'> 조회수 | ".$info['boardView']." </p>";
         echo "</div>";
-        echo "<div class='view-cont'>".$info['boardContents']."</div>";
-        echo "<div class='prev-next-cont'><p class='prev'>< 나는 오늘 뭘 하지?<em>다음글</em></p><p class='next'><em>이전글</em>하아,,,, 힘들다 ></p></div>";
-        echo "<div class='prev-next-cont'>COMMENTS</div>";
+        echo " <div class='view-cont'>".$info['boardContents']."</div>";
    }
 ?>
+        </div>
+<?php
+    $myReplyID = $_GET['myReplyID'];
+    $myMemberID = $_SESSION['myMemberID'];
+
+    // $sql2 = "SELECT * FROM myReply WHERE myReplyID = '$myReplyID' AND myMemberID = '$myMemberID'";
+    // $sql2 = "SELECT * FROM myReply WHERE myReplyID = '$myReplyID' AND myMemberID = '$myMemberID'";
+    $sql2 = "SELECT * FROM `myReply` WHERE 1";
+    // $sql2 = "SELECT * FROM myReply WHERE myMemberID = '$myMemberID'";
+
+    // var_dump($myReplyID);
+    $result2 = $connect-> query($sql2); 
+    // $info2 = $result2-> fetch_array(MYSQLI_ASSOC);
+?>
+<div id="commentView">
+<?php
+    if($result2) {
+        $info2 = $result2-> fetch_array(MYSQLI_ASSOC);
+        
+        echo "<h4> 작성자 : ".$info2['ReplyName']."</h4>";
+        echo "<p> 댓글 : ".$info2['ReplyComment']."</p>";
+    }
+?>
+</div>
+                <div class="reply">
+                    <form action="reply_ok.php" method="post">
+                        <input type="hidden" name="myReplyID" value="<?=$_GET['myReplyID']?>">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="ReplyName">아이디</label></th>
+                                    <td><input type="text" name="ReplyName" id="ReplyName"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                <label for="ReplyPass">비밀번호</label></th>
+                                    <td><input type="password" name="ReplyPass" id="ReplyPass"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ReplyComment">내용</label></th>
+                                    <td><textarea name="ReplyComment" id="ReplyComment"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btnSet">
+                            <input type="submit" value="코멘트 작성">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <?php include "../include/footer.php" ?>
     </div>
 </body>
 <script src="../../assets/javascript/board.js"></script>
 <script src="../../assets/javascript/common.js"></script>
-<!-- <script src="../../assets/javascript/search.js"></script> -->
+<script src="../../assets/javascript/search.js"></script>
 </html>

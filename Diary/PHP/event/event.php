@@ -47,7 +47,7 @@
         echo "<p>".$alert."건의 공지사항이 있어요!</p>";
     }
 
-    $sql = "SELECT e.myEventID, e.eventTitle, e.eventContents, m.youName, e.regTime, e.eventView, e.boardSection FROM myEvent e JOIN myMember m ON(e.myMemberID = m.myMemberID)";
+    $sql = "SELECT e.myEventID, e.eventTitle, e.eventContents, m.youName, m.youImageFile, e.regTime, e.eventView, e.boardSection FROM myEvent e JOIN myMember m ON(e.myMemberID = m.myMemberID)";
 
 
     $result = $connect -> query($sql);
@@ -119,7 +119,7 @@
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
                 echo "<div class='board_list_contents'>";
                 echo "<p class='contents_boardId'>".$info['myEventID']."</p>";
-                echo "<img src='../../assets/img/site_header_profile.png' alt='프로필 이미지'>";
+                echo "<img src='../../assets/img/blog/".$info['youImageFile']."' alt='프로필 이미지'>";
                 echo "<h2><a href='eventView.php?myEventID={$info['myEventID']}'>".$info['eventTitle']."</a><a href='eventView.php?myEventID={$info['myEventID']}'>".$info['eventContents']."</a></h2>";
                 echo "<div class='board_list_contents_info'>";
                 echo "<p class='contents_section'>".$info['boardSection']."</p>";

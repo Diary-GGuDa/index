@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/board.css">
 </head>
-<body>
-    <div class="login__popup">
-        <div class="login__inner">
-            <div class="login__header">
-                <img src="../../assets/img/SingUp_complete_logo.png" alt="">
-                <h3>COMPLETE</h3>
+<body style="overflow:hidden;">
+    <div class="wrap">
+        <div class="login__popup">
+            <div class="login__inner">
+                <div class="login__header">
+                    <img src="../../assets/img/SingUp_complete_logo.png" alt="">
+                    <h3>COMPLETE</h3>
 <?php
     include "../../connect/connect.php";
 
@@ -33,80 +34,72 @@
     $searchQA = $connect -> real_escape_string(trim($searchQA));
     $youQA = $connect -> real_escape_string(trim($youQA));
 
-    // 테스트
-    $blogImgFile = $_FILES['blogFile'];
-    $blogImgSize = $_FILES['blogFile']['size'];
-    $blogImgType = $_FILES['blogFile']['type'];
-    $blogImgName = $_FILES['blogFile']['name'];
-    $blogImgTmp = $_FILES['blogFile']['tmp_name'];
+    $youPass = sha1("web".$youPass);
     
-    echo "<pre>";
-    var_dump($blogImgFile);
-    echo "</pre>";
+    // 파일 정보
+    $youImageFile = $_FILES['youImage'];
+    $youImageSize = $_FILES['youImage']['size'];
+    $youImageType = $_FILES['youImage']['type'];
+    $youImageName = $_FILES['youImage']['name'];
+    $youImageTmp = $_FILES['youImage']['tmp_name'];
+    
+    if($youImageType){
+        $fileTypeExtension = explode("/", $youImageType);
+        $fileType = $fileTypeExtension[0];      //image
+        $fileExtension = $fileTypeExtension[1]; //png
 
-    // $youPass = sha1("web".$youPass);
-    // 회원가입
-    $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', '$searchQA', '$youQA', '$regTime' )";
+        //이미지 타입 확인
+        if($fileType == "image"){
+            if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
+                $youImageDir = "../../assets/img/blog/";
+                $youImageName = "Img_".time().rand(1,99999).".".$fileExtension;
+                // echo "이미지 파일이 맞네요!";
+                $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, youImageFile, youImageSize, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', '$youImageName', '$youImageSize', '$searchQA', '$youQA', '$regTime')";
+            } else {
+                echo "<script>alert('지원하는 이미지 파일이 아닙니다.'); history.back(1)</script>";
+            }
+        }
+    } else {
+        //echo "이미지 파일이 첨부하지 않았습니다.";
+        $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, youImageFile, youImageSize, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', 'Img_default.jpg', '$youImageSize', '$searchQA', '$youQA', '$regTime')";
+    }
+    //이미지 사이즈 확인
+    if($youImageSize > 1000000){
+        echo "<script>alert('이미지 용량이 1메가를 초과했습니다.'); history.back(1)</script>";
+        exit;
+    }
     $result = $connect -> query($sql);
-    
+    $result = move_uploaded_file($youImageTmp, $youImageDir.$youImageName);
+
     // echo "$result";
     if($result){
         echo "<p class='loginComple-word'>회원가입을 축하드려요!<br> 꾸다를 통해 진정한 다꾸인이 되기를 바랄게요!</p>";
     } else {
+        var_dump($sql);
         echo "<p class='loginComple-word'> 에러 - ;3 </p>";
     }
-
 ?>
-                <div class="login-txt">
-                </div>
                 <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
-            </div>
-            <div class="login__cont">
-                <form name="search" action="login.php" method="post">
-                    <fieldset>
-                        <legend class="ir">회원가입 완료 영역입니다.</legend>
-                        <!-- <p class="loginComple-word">회원가입을 축하드려요!<br>
-                            꾸다를 통해 진정한 다꾸인이 되기를 바랄게요!
-                        </p> -->
-                        <!-- <hr class="login-divider"> -->
-                        <!-- <a class="input__Btn" href="../login/login.php">로그인 하러가기</a> -->
-                        <a class="input__Btn white" href="../main/main.php">완료</a>
-                    </fieldset>
-                </form>
+                <button type="submit" class="input__Btn"><a href="../main/main.php">메인으로 가기</a></button>
+                </div>
             </div>
         </div>
     </div>
     <div class="site">
-            <div class="header">
-                <div class="header_inner">
-                    <img style="padding-right: 20px;" src="../assets/img/site_header_logo.png" alt="logo">
-                    <p>공지사항</p>
-                    <p>이벤트</p>
-                    <p>이달의 순위</p>
-                    <p>일기쓰기</p>
-                    <p>꾸미기</p>
-                    <p>정보</p>
-                    <p>고객센터</p>
-                    <div class="profile_cont" alt="로그인한 프로파일 이미지">
-                        <img src="../assets/img/site_header_profile.png" alt="logo">
-                        <img src="../assets/img/site_header_profile_heart.png" alt="logo">
-                    </div>
+        <?php include "../include/header.php" ?>
+        <div class="intro">
+            <div class="intro_page one">
+                <div class="logo__cont">
+                    <img src="../assets/img/site_intro_logo.png" alt="">
+                    <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
                 </div>
-            </div>
-            <div class="intro">
-                <div class="intro_page one">
-                    <div class="logo__cont">
-                        <img src="../assets/img/site_intro_logo.png" alt="">
-                        <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
+                <img src="../assets/img/site_intro_stroke.svg" alt="">
+                <div style="position:absolute; bottom: 25px;">
+                    <div class="cover">
+                        <p class="first-parallel"></p>
                     </div>
-                    <img src="../assets/img/site_intro_stroke.svg" alt="">
-                    <div style="position:absolute; bottom: 25px;">
-                        <div class="cover">
-                            <p class="first-parallel"></p>
-                        </div>
-                        <div class="cover">
-                            <p class="second-parallel"></p>
-                        </div>
+                    <div class="cover">
+                        <p class="second-parallel"></p>
                     </div>
                 </div>
             </div>
@@ -199,15 +192,6 @@
     document.querySelector(".btn-close").addEventListener("click", ()=>{
         history.back();
     })
-</script>
-<script>
-    // document.querySelector('.input__Btn').addEventListener('click', ()=>{
-    //     // window.alert(location.href='../login/login.php');
-    //     location.href='../login/login.php';
-    // })
-    // document.querySelector('.input__Btn.white').addEventListener('click', ()=>{
-    //     location.href='http://vvv0032.dothome.co.kr/PHP/main.php';
-    // })
 </script>
 
 </html>

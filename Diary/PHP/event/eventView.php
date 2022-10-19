@@ -72,21 +72,21 @@
     $connect -> query($sql);
   
     // echo $myBoardID;
-    $sql = "SELECT e.eventTitle, e.boardSection , e.regTime, e.eventView, e.eventContents FROM myEvent e JOIN myMember m ON(m.myMemberID = e.myMemberID) WHERE e.myEventID = {$myEventID}";
+    $sql = "SELECT e.eventTitle, e.boardSection, m.youImageFile, e.regTime, e.eventView, e.eventContents FROM myEvent e JOIN myMember m ON(m.myMemberID = e.myMemberID) WHERE e.myEventID = {$myEventID}";
     $result = $connect -> query($sql);
 
 
     if($result){
        $info = $result -> fetch_array(MYSQLI_ASSOC);
-    //    echo "<pre>";
-    //    var_dump($info);
-    //    echo "</pre>";
-        echo "<h3 class='view-title'>".$info['eventTitle']."</h3>";
-        echo "<div class='view-info'>";
-        echo "<p class='view-time'> ".$info['boardSection']." | ".date('Y-m-d H:i',$info['regTime'])." </p>";
-        echo "<p class='view-num'> 조회수 | ".$info['eventView']." </p>";
-        echo "</div>";
-        echo " <div class='view-cont'>".$info['eventContents']."</div>";
+            echo "<h3 class='view-title'>".$info['eventTitle']."</h3>";
+            echo "<div class='view-info'>";
+            echo "<img src='../../assets/img/blog/".$info['youImageFile']."' alt='프로필 이미지'>";
+            echo "<p class='view-time'> ".$info['boardSection']." | ".date('Y-m-d H:i',$info['regTime'])." </p>";
+            echo "<p class='view-num'> 조회수 ".$info['eventView']." </p>";
+            echo "</div>";
+            echo "<div class='view-cont'>".$info['eventContents']."</div>";
+            echo "<div class='prev-next-cont'><p class='prev'>< 나는 오늘 뭘 하지?<em>다음글</em></p><p class='next'><em>이전글</em>하아,,,, 힘들다 ></p></div>";
+            echo "<div class='prev-next-cont'>COMMENTS</div>";
    }
 ?>
                 </div>

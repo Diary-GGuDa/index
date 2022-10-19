@@ -10,7 +10,7 @@
     <!-- <link rel="stylesheet" href="../../assets/javascript/main.js"> -->
 
 </head>
-<body>
+<body style="overflow:hidden;">
     <div class="login__popup">
         <div class="login__inner">
             <div class="login__header">
@@ -23,13 +23,13 @@
                 <img class="login-cross"src="../../assets/img/login_cross.png" alt="">
             </div>
             <div class="login__cont">
-                <form name="join" action="joinSave.php" method="post" onsubmit ="return joinChecks()"  enctype="multipart/form-data">
+                <form name="join" action="joinSave.php" method="post" onsubmit ="return joinChecks()" enctype="multipart/form-data">
                     <fieldset>
                         <legend class="ir">회원가입을 위한 정보 입력영역</legend>
                         <section class="joinAgree">
                             <div>
-                                <label for="blogFile">파일</label>
-                                <input type="file" name="blogFile" id="blogFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg, gif, png 파일만 넣어주세요!">
+                                <label for="youImage">파일</label>
+                                <input type="file" name="youImage" id="youImage" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg, gif, png 파일만 넣어주세요!">
                             </div>
                             <div class="Email overlap">
                                 <label for="youEmail" class="ir">이메일</label>
@@ -83,36 +83,20 @@
         </div>
     </div>
     <div class="site">
-            <div class="header">
-                <div class="header_inner">
-                    <img style="padding-right: 20px;" src="../assets/img/site_header_logo.png" alt="logo">
-                    <p>공지사항</p>
-                    <p>이벤트</p>
-                    <p>이달의 순위</p>
-                    <p>일기쓰기</p>
-                    <p>꾸미기</p>
-                    <p>정보</p>
-                    <p>고객센터</p>
-                    <div class="profile_cont" alt="로그인한 프로파일 이미지">
-                        <img src="../assets/img/site_header_profile.png" alt="logo">
-                        <img src="../assets/img/site_header_profile_heart.png" alt="logo">
-                    </div>
+        <?php include "../include/header.php" ?>
+        <div class="intro">
+            <div class="intro_page one">
+                <div class="logo__cont">
+                    <img src="../assets/img/site_intro_logo.png" alt="">
+                    <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
                 </div>
-            </div>
-            <div class="intro">
-                <div class="intro_page one">
-                    <div class="logo__cont">
-                        <img src="../assets/img/site_intro_logo.png" alt="">
-                        <p>“너가 상상한 <em>그 모든것</em> 여기서 꿈을 <em>꾸다</em>.”</p>
+                <img src="../assets/img/site_intro_stroke.svg" alt="">
+                <div style="position:absolute; bottom: 25px;">
+                    <div class="cover">
+                        <p class="first-parallel"></p>
                     </div>
-                    <img src="../assets/img/site_intro_stroke.svg" alt="">
-                    <div style="position:absolute; bottom: 25px;">
-                        <div class="cover">
-                            <p class="first-parallel"></p>
-                        </div>
-                        <div class="cover">
-                            <p class="second-parallel"></p>
-                        </div>
+                    <div class="cover">
+                        <p class="second-parallel"></p>
                     </div>
                 </div>
             </div>

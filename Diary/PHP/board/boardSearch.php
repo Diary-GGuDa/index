@@ -29,7 +29,11 @@
             <div class="board">
                 <a class="write_btn" href="boardWrite.php">글쓰기</a>
                 <div class="board_info">
-                    <img class="notice_logo" src="../../assets/img/site_board_notice_logo.png" alt="">
+                    <img src="../../assets/img/board_header_01.png" class="header_icon_01" alt="">
+                    <img src="../../assets/img/board_header_02.png" class="header_icon_02" alt="">
+                    <img src="../../assets/img/board_header_03.png" class="header_icon_03" alt="">
+                    <img src="../../assets/img/board_header_04.png" class="header_icon_04" alt="">
+                    <img src="../../assets/img/board_header_05.png" class="header_icon_05" alt="">
                     <h2>NOTICE : 검색결과</h2>
 <?php
     if(isset($_GET['page'])){
@@ -39,7 +43,7 @@
     }
 
     function msg($alert){
-        echo "<p>총 ".$alert."건이 검색되었습니다.</p>";
+        echo "<p>총 ".$alert."건이 검색되었습니다!</p>";
     }
 
 
@@ -51,7 +55,8 @@
     $searchKeyword = $connect -> real_escape_string(trim($searchKeyword));
     $searchOption = $connect -> real_escape_string(trim($searchOption));
 
-    $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
+    $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, m.youImageFile, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
+    // $sql = "SELECT b.myBoardID, b.boardTitle, b.boardContents, m.youName, b.regTime, b.boardView, b.boardSection FROM myBoard b JOIN myMember m ON(b.myMemberID = m.myMemberID)";
 
     switch($searchOption){
         case "title":
@@ -78,7 +83,7 @@
                 <div class="section_selector">
                     <div class="section_container">
                         <a class="select" href="board.php">공지사항</a>
-                        <a href="board.php">이벤트</a>
+                        <a href="../event/event.php">이벤트</a>
                     </div>
                     <form action="boardSearch.php" name="boardSearch" method="get" id="board_search">
                         <fieldset>
@@ -99,20 +104,15 @@
                 </div>
                 <div class="board_list">
                     <div class="board_list_inner">
-                    <!-- <div class="board_list_contents">
-                            <h2><a href="board_view.html">대전 다이어리 꾸미기 페스티벌 일정 및 장소</a></h2>
-                            <div class="board_list_contents_info">
-                                <p class="contents_section">NOTICE</p>
-                                <p class="contents_date">2022.09.28</p>
-                                <p class="contents_view">조회 수 : 3</p>
-                            </div>
-                        </div> -->
-
-                        
-
-                    </div>
-                    <!-- test -->
-                </div>
+                        <div class='board_list_header'>
+                            <span>No.</span>
+                            <span>PROFILE</span>
+                            <span>TITLE</span>
+                            <span>BOARD</span>
+                            <span>DATE</span>
+                            <span>VIEW</span>
+                            <span>NAME</span>
+                        </div>
 <?php
     $viewNum = 10;
     $viewLimit = ($viewNum * $page) - $viewNum;
@@ -127,7 +127,8 @@
             for($i=1; $i <= $count; $i++){
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
                 echo "<div class='board_list_contents'>";
-                echo "<img src='../../assets/img/site_header_profile.png' alt='프로필 이미지'>";
+                echo "<p class='contents_boardId'>".$info['myBoardID']."</p>";
+                echo "<img src='../../assets/img/blog/".$info['youImageFile']."' alt='프로필 이미지'>";
                 echo "<h2><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardTitle']."</a><a href='boardView.php?myBoardID={$info['myBoardID']}'>".$info['boardContents']."</a></h2>";
                 echo "<div class='board_list_contents_info'>";
                 echo "<p class='contents_section'>".$info['boardSection']."</p>";
@@ -143,6 +144,8 @@
         }
     }
 ?>
+                    </div>
+                </div>
                 <div class="board__pages">
                     <ul>
 <?php
@@ -174,7 +177,7 @@
         $active = "";
         if($i == $page) $active = "active";
 
-        echo "<li class='{$active}'><a href='boardSearch.php?page={$i}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>{$i}페이지</a></li>";
+        echo "<li class='{$active}'><a href='boardSearch.php?page={$i}&searchKeyword={$searchKeyword}&searchOption={$searchOption}'>{$i}</a></li>";
     }
 
     //다음 페이지, 마지막 페이지
@@ -189,10 +192,12 @@
                     <!-- test -->
             </div>
         </div>
+        <?php include "../include/footer.php" ?>
+
     </div>
 </body>
 <script src="../../assets/javascript/board.js"></script>
-<script src="../../assets/javascript/search.js"></script>
+<!-- <script src="../../assets/javascript/search.js"></script> -->
 <script src="../../assets/javascript/common.js"></script>
 
 </html>

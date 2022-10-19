@@ -10,7 +10,7 @@
     <!-- <link rel="stylesheet" href="../../assets/javascript/main.js"> -->
 
 </head>
-<body>
+<body style="overflow:hidden;">
     <div class="wrap">
         <div class="login__popup joinAgree">
             <div class="login__inner">
@@ -96,22 +96,7 @@
             </div>
         </div>
         <div class="site">
-            <div class="header">
-                <div class="header_inner">
-                    <img style="padding-right: 20px;" src="../assets/img/site_header_logo.png" alt="logo">
-                    <p>공지사항</p>
-                    <p>이벤트</p>
-                    <p>이달의 순위</p>
-                    <p>일기쓰기</p>
-                    <p>꾸미기</p>
-                    <p>정보</p>
-                    <p>고객센터</p>
-                    <div class="profile_cont" alt="로그인한 프로파일 이미지">
-                        <img src="../assets/img/site_header_profile.png" alt="logo">
-                        <img src="../assets/img/site_header_profile_heart.png" alt="logo">
-                    </div>
-                </div>
-            </div>
+            <?php include "../include/header.php" ?>
             <div class="intro">
                 <div class="intro_page one">
                     <div class="logo__cont">

@@ -2,7 +2,7 @@
     include "../../connect/connect.php";
     include "../../connect/session.php";
 
-    // echo "<pre>";
+    // echo "<pre style='position:absolute; top:200px; left: 50px;'>";
     // var_dump($_SESSION);
     // echo "</pre>";
 ?> 
@@ -219,6 +219,28 @@
         <?php include "../include/footer.php" ?>
     </div>
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            
+            url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%EB%8B%A4%EA%BE%B8&type=video&key=AIzaSyAp7wwVT_hzfA2mSXrrh-1ZUx7QCX3ogtk",
+            contentType : "application/json",
+            success : function(data) {
+                data.items.forEach(function(element, index) {
+                    $('.youtube_inner').append('<div class="youtube_item"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+element.id.videoId+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
+                });
+            },
+            complete : function(data) {
+            },
+            error : function(xhr, status, error) {
+                console.log("유튜브 요청 에러: "+error);
+            }
+        });
+    });
+</script>
 <script>
     //파티클 생성 10개
     //설명 : 파티클(작은거/큰거) 하나하나 태그로 넣기에는 너무 길어져서 사용함
@@ -307,16 +329,12 @@
             if (scrollTop >= 100) {
                 header.classList.add("header_ctrl");
                 plzScroll.style.opacity = "0";
-                scrollUp.style.transform = "scale(1) translatex(180px)";
-                profileClose.style.transform = "scale(1) translatex(-180px)";
                 e.style.opacity = "0.2";
                 // let switcher = 1;
                 
             } else {
                 header.classList.remove("header_ctrl");
                 plzScroll.style.opacity = "1";
-                scrollUp.style.transform = "scale(0) translatex(0)";
-                profileClose.style.transform = "scale(0) translatex(0)";
                 e.style.opacity = "1"
                 // let switcher = 0;
             }
@@ -538,42 +556,6 @@
     //             })
     //         }
     //     }) 
-    const profileCont = document.querySelector(".loginplz");
-    const loginClose = document.querySelector(".btn-close");
-
-    loginClose.addEventListener("click", ()=>{
-        document.querySelector(".login__popup").classList.remove("show");
-    })
-
-    profileCont.addEventListener("click", ()=>{
-        document.querySelector(".login__popup").classList.add("show");
-    })
-
-    // document.querySelector(".btn-close").addEventListener("click", ()=>{
-    //     history.back();
-    // })
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            
-            url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%EB%8B%A4%EA%BE%B8&type=video&key=AIzaSyAp7wwVT_hzfA2mSXrrh-1ZUx7QCX3ogtk",
-            contentType : "application/json",
-            success : function(data) {
-                data.items.forEach(function(element, index) {
-                    $('.youtube_inner').append('<div class="youtube_item"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+element.id.videoId+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
-                });
-            },
-            complete : function(data) {
-            },
-            error : function(xhr, status, error) {
-                console.log("유튜브 요청 에러: "+error);
-            }
-        });
-    });
 </script>
 <!-- <script src="../../assets/javascript/board.js"></script> -->
 </html>

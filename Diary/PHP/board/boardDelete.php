@@ -40,6 +40,8 @@
                 </div>
             </div>
         </div>
+        <?php include "../include/footer.php" ?>
+
     </div>
 </body>
 <script src="../../assets/javascript/common.js"></script>
