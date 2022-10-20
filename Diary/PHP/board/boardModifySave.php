@@ -31,10 +31,13 @@
                     <img class="notice_logo" src="../../assets/img/site_board_edit_complete.png" alt="">
 <?php
     $myBoardID = $_POST['myBoardID'];
+    $myMemberID = $_SESSION['myMemberID'];
+    
     $boardTitle = $_POST['boardTitle'];
     $boardContents = $_POST['boardContents'];
     $youPass = $_POST['youPass'];
-    $myMemberID = $_SESSION['myMemberID'];
+
+    $youPass = sha1("web".$youPass);
 
     $boardTitle = $connect -> real_escape_string($boardTitle);
     $boardContents = $connect -> real_escape_string($boardContents);
@@ -48,11 +51,37 @@
         $sql = "UPDATE myBoard SET boardTitle = '{$boardTitle}', boardContents = '{$boardContents}' WHERE myBoardID = '{$myBoardID}'";
         $connect -> query($sql);
 
-        var_dump ($sql);
+        // var_dump ($sql);
     } else {
         echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한 번 확인해주세요.')</script>";
         echo "<script>history.back();</script>";
     }
+
+    // $myBoardID = $_POST['myBoardID'];
+    // $boardTitle = $_POST['boardTitle'];
+    // $boardContents = $_POST['boardContents'];
+    // $youPass = $_POST['youPass'];
+    // $myMemberID = $_SESSION['myMemberID'];
+
+    // $youPass = sha1("web".$youPass);
+
+    // $boardTitle = $connect -> real_escape_string($boardTitle);
+    // $boardContents = $connect -> real_escape_string($boardContents);
+
+    // $sql = "SELECT youPass, myMemberID FROM myMember WHERE myMemberID = {$myMemberID}";
+    // $result = $connect -> query($sql);
+
+    // $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
+
+    // if($memberInfo['youPass'] === $youPass && $memberInfo['myMemberID'] === $myMemberID){
+    //     $sql = "UPDATE myBoard SET boardTitle = '{$boardTitle}', boardContents = '{$boardContents}' WHERE myBoardID = '{$myBoardID}'";
+    //     $connect -> query($sql);
+
+    //     var_dump ($sql);
+    // } else {
+    //     echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한 번 확인해주세요.')</script>";
+    //     echo "<script>history.back();</script>";
+    // }
 ?>
                     <!-- <h2>수정완료</h2> -->
                     <p class="cross">수정하신 내용이 반영되었습니다, 하단의 버튼을 눌러 확인해주세요!</p>

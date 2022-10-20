@@ -21,10 +21,10 @@
 </head>
 <body>
     <!-- //header -->
-    <div class="scroll">
+    <!-- <div class="scroll">
         <p>스크롤을 내려보세요.</p>
         <img src="../../assets/img/site_intro_scroll.png" alt="">
-    </div>
+    </div> -->
     <div class="wrap mainCtrl">
         <?php include "../login/login.php" ?>
 
@@ -173,45 +173,179 @@
                 </div>
 
                 <!-- 아티스트 -->
-                <div class="artist section_ctrl2">
-                    <h2>NOTICE</h2>
+                <div class="artist section_ctrl">
+                    <h2>ARTIST</h2>
                     <p>테스트</p>
                     <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
                     <div class="artist_cont">
                         <div class="artist_list_item_01">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
+                            <img src="../../assets/img/.png" alt="프로파일">
+                            <img src="../../assets/img/.png" alt="하트">
                         </div>
                         <div class="artist_list_item_02">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
+                            <img src="../../assets/img/.png" alt="프로파일">
+                            <img src="../../assets/img/.png" alt="하트">
                         </div>
                         <div class="artist_list_item_03">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
+                            <img src="../../assets/img/.png" alt="프로파일">
+                            <img src="../../assets/img/.png" alt="하트">
                         </div>
                         <div class="artist_list_item_04">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
+                            <img src="../../assets/img/.png" alt="프로파일">
+                            <img src="../../assets/img/.png" alt="하트">
                         </div>
                         <div class="artist_list_item_05">
-                            <img src="#" alt="프로파일">
-                            <img src="#" alt="하트">
+                            <img src="../../assets/img/.png" alt="프로파일">
+                            <img src="../../assets/img/.png" alt="하트">
                         </div>
                     </div>
                 </div>
 
                 <!-- SEARCH -->
-                <div class="search">
+                <div class="search section_ctrl">
                     <h2>SEARCH</h2>
                     <p>테스트</p>
                     <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
                     <div class="search_cont">
-                        <select name="youGender" id="youGender" class="input__style" required>
-                            <option value="male">남자</option>
-                            <option value="female">여자</option>
-                        </select>
-                        <input type="text">
+                        <form action="boardSearch.php" name="boardSearch" method="get" id="board_search">
+                            <fieldset>
+                                <legend class="ir">게시판 검색 영역</legend>
+                                <select name="searchOption" id="searchOption">
+                                    <option value="title">제목</option>
+                                    <option value="content">내용</option>
+                                    <option value="name">닉네임</option>
+                                </select>
+                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!" aria-label="search" class="board_search" required>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Event -->
+                <div class="Event section_ctrl">
+                    <h2>Event</h2>
+                    <p>테스트</p>
+                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
+                    <div class="event_cont">
+                        d
+                    </div>
+                </div>
+
+                <!-- RANK -->
+                <div class="rank section_ctrl">
+                    <h2>RANKING</h2>
+                    <p>랭킹을 모아봤어요!</p>
+                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
+                    <div class="rank_cont">
+                        <div class="rank_cont_inner">
+                            <div class="rank_item_user">
+<?php
+    // 두개의 테이블 join
+    $viewSql = "SELECT b.myBoardID, b.boardTitle, b.boardView FROM myBoard b JOIN myMember m ON (b.myMemberID = m.myMemberID) ORDER BY boardView DESC LIMIT 0, 3";
+    $viewResult = $connect -> query($viewSql);
+    if($viewResult){
+        $viewCount = $viewResult -> num_rows;
+        if($viewCount > 0){
+            for($i=1; $i<=3; $i++){
+                $info = $viewResult -> fetch_array(MYSQLI_ASSOC);
+                switch ($i) {
+                    case 3 :
+                        echo "<div class='rank_item'>";
+                        echo "<p class='rank_title'>".$info['boardTitle']."</p>";
+                        echo "<div class='rank_item_03'><a href='http://sunhey9810.dothome.co.kr/PHP/board/boardView.php?myBoardID={$info['myBoardID']}'>";
+                        echo "<p class='rank_three'>3등</p></a>";
+                        echo "</div>";
+                    break;
+                    case 1 :
+                        // echo "<li class='gold'><a href='http://sunhey9810.dothome.co.kr/php/board/board.php?myBoardID={$info['myBoardID']}'><h4>".$info['boardTitle']."</h4></a></li>";
+                        echo "<div class='rank_item'>";
+                        echo "<p class='rank_title'>".$info['boardTitle']."</p>";
+                        echo "<div class='rank_item_01'><a href='http://sunhey9810.dothome.co.kr/PHP/board/boardView.php?myBoardID={$info['myBoardID']}'>";
+                        echo "<img src='../../assets/img/site_main_rank.png' alt=''>";
+                        echo "<p class='rank_one'>1등</p><a>";
+                        echo "</div>";
+                    break;
+                    case 2 :
+                        echo "<div class='rank_item'>";
+                        echo "<p class='rank_title'>".$info['boardTitle']."</p>";
+                        echo "<div class='rank_item_02'><a href='http://sunhey9810.dothome.co.kr/PHP/board/boardView.php?myBoardID={$info['myBoardID']}'>";
+                        echo "<p class='rank_two'>2등</p></a>";
+                        echo "</div>";
+                    break;
+                    // http://bb020440.dothome.co.kr/php/category/small_cg_detail.php?myTipsID=7
+                }
+            }
+        }
+        else {
+            echo "<div class='rank_item'>게시글 오류입니다. 관리자에게 문의하세요!</div>";
+        }
+    }
+?>
+                        </div>
+                        <!-- <div class="rank_item">
+                                <p>"이솔 스티커"</p>
+                                <div class="rank_item_03">
+                                    <p>3등</p>
+                                </div>
+                            </div>
+                            <div class="rank_item">
+                                <p>"이솔 스티커"</p>
+                                <div class="rank_item_01">
+                                    <img src="../../assets/img/site_main_rank.png" alt="">
+                                    <p>1등</p>
+                                </div>
+                            </div>
+                            <div class="rank_item">
+                                <p>"사"</p>
+                                <div class="rank_item_02">
+                                    <p>2등</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="community section_ctrl">
+                    <h2>COMMUNITY</h2>
+                    <p>테스트</p>
+                    <img class="cross" src="../../assets/img/site_main_cross.png" alt="">
+                    <div class="community_cont">
+                        <div class="community_cont_inner">
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                            <div class="item">
+                                <img src="#" alt="하트">
+                                <img src="#" alt="배경">
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -221,25 +355,25 @@
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            dataType: "json",
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         type: "GET",
+    //         dataType: "json",
             
-            url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%EB%8B%A4%EA%BE%B8&type=video&key=AIzaSyAp7wwVT_hzfA2mSXrrh-1ZUx7QCX3ogtk",
-            contentType : "application/json",
-            success : function(data) {
-                data.items.forEach(function(element, index) {
-                    $('.youtube_inner').append('<div class="youtube_item"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+element.id.videoId+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
-                });
-            },
-            complete : function(data) {
-            },
-            error : function(xhr, status, error) {
-                console.log("유튜브 요청 에러: "+error);
-            }
-        });
-    });
+    //         url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=%EB%8B%A4%EA%BE%B8&type=video&key=AIzaSyAp7wwVT_hzfA2mSXrrh-1ZUx7QCX3ogtk",
+    //         contentType : "application/json",
+    //         success : function(data) {
+    //             data.items.forEach(function(element, index) {
+    //                 $('.youtube_inner').append('<div class="youtube_item"><iframe width="560" height="315" src="https://www.youtube.com/embed/'+element.id.videoId+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>');
+    //             });
+    //         },
+    //         complete : function(data) {
+    //         },
+    //         error : function(xhr, status, error) {
+    //             console.log("유튜브 요청 에러: "+error);
+    //         }
+    //     });
+    // });
 </script>
 <script>
     //파티클 생성 10개
@@ -315,47 +449,9 @@
 
     //스크롤 값에 따라 변경할 클래스 및 효과
     const header = document.querySelector(".header")
-    const particle = document.querySelectorAll(".particle")
-    const plzScroll = document.querySelector(".scroll")
-    const scrollUp = document.querySelector(".btn_scroll_top")
     const profileClose = document.querySelector(".profile_cont_close")
     const profile = document.querySelector(".profile_cont")
-
-    // let switcher = 0;
-    function scroll() {
-        let scrollTop = window.pageYoffest || document.documentElement.scrollTop || window.screenY;
-        
-        particle.forEach((e, i) => {
-            if (scrollTop >= 100) {
-                header.classList.add("header_ctrl");
-                plzScroll.style.opacity = "0";
-                e.style.opacity = "0.2";
-                // let switcher = 1;
-                
-            } else {
-                header.classList.remove("header_ctrl");
-                plzScroll.style.opacity = "1";
-                e.style.opacity = "1"
-                // let switcher = 0;
-            }
-        })
-        requestAnimationFrame(scroll);
-    }
-    scroll(); //함수 호출
-
-    // console.log(switcher);
-
-    // function bouncingEffect(){
-    //     profile.classList.remove("anim");
-    //     void profile.offsetWidth;
-    //     profile.classList.add("anim");
-    // }
-    // if(switcher==0){
-    //     bouncingEffect();
-    // } else{
-    //     bouncingEffect();
-    // }
-
+    const scrollUp = document.querySelector(".btn_scroll_top");
 
     // 스크롤 TOP 선택시 부드럽게 이동
     scrollUp.addEventListener("click", (e) => {

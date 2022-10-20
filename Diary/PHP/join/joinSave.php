@@ -61,7 +61,7 @@
         }
     } else {
         //echo "이미지 파일이 첨부하지 않았습니다.";
-        $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, youImageFile, youImageSize, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', 'Img_default.jpg', '$youImageSize', '$searchQA', '$youQA', '$regTime')";
+        $sql = "INSERT INTO myMember(youEmail, youName, youPass, youBirth, youGender, youImageFile, youImageSize, searchQA, youQA, regTime) VALUES('$youEmail', '$youName', '$youPass', '$youBirth', '$youGender', 'Img_default.jpg', '1', '$searchQA', '$youQA', '$regTime')";
     }
     //이미지 사이즈 확인
     if($youImageSize > 1000000){
@@ -69,13 +69,13 @@
         exit;
     }
     $result = $connect -> query($sql);
-    $result = move_uploaded_file($youImageTmp, $youImageDir.$youImageName);
+    if($youImageSize >= 1){$result = move_uploaded_file($youImageTmp, $youImageDir.$youImageName);}
 
-    // echo "$result";
     if($result){
         echo "<p class='loginComple-word'>회원가입을 축하드려요!<br> 꾸다를 통해 진정한 다꾸인이 되기를 바랄게요!</p>";
     } else {
-        var_dump($sql);
+        // var_dump($sql);
+        // echo "<p class='loginComple-word'>회원가입을 축하드려요!<br> 꾸다를 통해 진정한 다꾸인이 되기를 바랄게요!<br>추후 임시 프로필 사진을 업로드 해주세요!</p>";
         echo "<p class='loginComple-word'> 에러 - ;3 </p>";
     }
 ?>
