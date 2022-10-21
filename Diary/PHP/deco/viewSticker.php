@@ -20,21 +20,9 @@
         <img src="../../assets/img/site_intro_scroll.png" alt="">
     </div>
     <div class="wrap">
-        <div class="deco__Diary">
-            <div class="diary__inner">
-                <div class="color__section">
-                    <div class="book">
-                        이미지
-                    </div>
-                        <h3>좋아하는 색상을 골라주세요 :3</h3>
-                        <legend class="ir">책 색상 선택창입니다.</legend>
-                        <ul>
-                            <li><a href="bookOpen.php?color=red">레드</a></li>
-                            <li><a href="bookOpen.php?color=blue">블루</a></li>
-                        </ul>
-                        </form>
-                    </div>
-                </div>
+        <div class="view__community">
+            <div class="view__imge">
+                메인에 나온 커뮤니티들의 사진을 여기에 올려둘까 고민중
             </div>
         </div>
     </div>

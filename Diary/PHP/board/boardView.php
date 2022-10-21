@@ -117,6 +117,54 @@
    }
 ?>
                 </div>
+                <div class="boardComment">
+                    <h3>최신 댓글</h3>
+                    <div class="comment" id="commentID">
+                        <div class="comment__view">
+                            <div class="comment__view-img">
+                                <img src="../../assers/img/site_header_profile.png" alt="">
+                            </div>
+                            <div class="comment__view-data">
+                                <span class="name">닉네임</span>
+                                <span class="data">시간</span>
+                            </div>
+                            <div class="comment__view-msg">
+                                메세지
+                            </div>
+                        </div>
+                        <div class="comment__dat">
+                            <a href="#" class="comment__del-dat">댓글 삭제</a>
+                            <a href="#" class="comment__del-mod">댓글 수정</a>
+                        </div>
+                        <div class="comment__delete">
+                            <label for="commentDelete-Pass">비밀번호</label>
+                            <input type="text" id="commentDelete-Pass" name="commentDelete-Pass">
+                            <button id="commentDelete-Cancle">취소</button>
+                            <button id="commentDelete-Button">삭제</button>
+                        </div>
+                        <div class="commemt__modify">
+                            <label for="commentModify-Msg">수정내용</label>
+                            <input type="text" id="commentModify-Msg" name="commentModify-Msg">
+                            <label for="commentModify-Pass">비밀번호</label>
+                            <input type="text" id="commentModify-Pass" name="commentModify-Pass">
+                            <button id="commentModify-Cancle">취소</button>
+                            <button id="commentModify-Button">수정</button>
+                        </div>
+                        <div class="comment__write">
+                            <div class="comment__write__info">
+                                <label for="commentName">이름</label>
+                                <input type="text" id="commentName" name="commentName" placeholder="이름">
+                                <label for="commentPass">비밀번호</label>
+                                <input type="text" id="commentPass" name="commentPass" placeholder="비밀번호">
+                                <button type="submit" id="commentBtn">댓글 쓰기</button>
+                            </div>
+                            <div class="comment__write__msg">
+                                <label for="commentWrite">댓글을 적어주세요 :3</label>
+                                <input type="text" id="commentWrite" name="commentWrite" placeholder="댓글을 적어주세요 :3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <?php include "../include/footer.php" ?>

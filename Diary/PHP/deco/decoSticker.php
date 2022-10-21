@@ -22,30 +22,6 @@
     <div class="wrap">
         <div class="deco__Diary">
             <div class="diary__inner__black">
-                <div class="edit_function" alt="편집기능 이미지">
-                    <button id="btn-bold">
-                        <b>가</b>
-                    </button>
-                    <button id="btn-italic">
-                        <i>가</i>
-                    </button>
-                    <button id="btn-underline">
-                        <u>가</u>
-                    </button>
-                    <button id="btn-strike">
-                        <s>가</s>
-                    </button>
-                    <button id="btn-ordered-list">
-                        1.
-                    </button>
-                    <button id="btn-unordered-list">
-                        •.
-                    </button>
-                    <button id="btn-image">
-                        이미지
-                    </button>
-                    <input type="file" name="uploadfile" id="img-selector" accept="image/*" style="display:none;"/>
-                </div>
                 <div class="edit_stiker" alt="스티커 붙이기">
                     <button id="btn-stk01">
                         <div><img src="../../assers/img/function_edit_sticker_01.png" alt=""></div>
@@ -65,7 +41,7 @@
                 </div>
                 <div class="diaryDesc">
                     <label for="diaryContents" class="ir">내용</label>
-                    <textarea name="diaryBox" id="diaryBox" placeholder="일기를 써주세요 :3" cols="20" rows="3" class="diaryBox" required></textarea>
+                    <textarea name="diaryBox" id="diaryBox" placeholder="사진을 꾸며보세요" cols="20" rows="3" class="diaryBox" required></textarea>
                 </div>
                 <button type="submit" class="diary__btn">완료</button>
             </div>
